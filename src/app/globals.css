@@ -8,30 +8,47 @@
   :root {
     &,
     &.light-mode {
-      --color-primary-300: #12b441;
-      --color-primary-200: #03290e;
-      --color-primary-100: #6f0dff;
-      --color-secondary-700: #d7d7d7;
-      --color-secondary-600: #adadad;
-      --color-secondary-500: #535353;
-      --color-secondary-400: #3c3c3c;
-      --color-secondary-300: #2b2b2b;
-      --color-secondary-200: #7e7e7e;
-      --color-secondary-100: #ececec;
-      --color-secondary-0: #000000;
+      --background-app-rgb: 255, 255, 255;
+      --color-primary-900: 74, 109, 255;
+      --color-primary-800: 92, 124, 255;
+      --color-primary-700: 110, 138, 255;
+      --color-primary-600: 128, 153, 255;
+      --color-primary-500: 146, 167, 255;
+      --color-primary-400: 164, 182, 255;
+      --color-primary-300: 183, 197, 255;
+      --color-primary-200: 201, 211, 255;
+      --color-primary-100: 219, 226, 255;
+      --color-primary-50: 228, 233, 255;
+      --color-secondary-900: 17, 24, 39;
+      --color-secondary-800: 31, 41, 55;
+      --color-secondary-700: 55, 65, 81;
+      --color-secondary-600: 75, 85, 99;
+      --color-secondary-500: 107, 114, 128;
+      --color-secondary-400: 156, 163, 175;
+      --color-secondary-300: 209, 213, 219;
+      --color-secondary-200: 229, 231, 235;
+      --color-secondary-100: 243, 244, 246;
+      --color-secondary-50: 249, 250, 251;
+      --color-secondary-0: 255, 255, 255;
       --color-success: 0, 192, 115;
       --color-warning: 255, 153, 0;
       --color-error: 255, 71, 87;
+      --color-red-500: 239, 68, 68;
+      --color-red-300: 252, 165, 165;
     }
     &.dark-mode {
-      --color-secondary-700: #727272; /*icon item*/
-      --color-secondary-600: #696969; /*id*/
-      --color-secondary-500: #535353; /*name tag*/
-      --color-secondary-400: #3c3c3c; /*date*/
-      --color-secondary-300: #2b2b2b; /*tag*/
-      --color-secondary-200: #151515; /*cart*/
-      --color-secondary-100: #000000; /*background*/
-      --color-secondary-0: #ffffff;
+      --color-secondary-900: 249, 250, 251;
+      --color-secondary-800: 243, 244, 246;
+      --color-secondary-700: 229, 231, 235;
+      --color-secondary-600: 209, 213, 219;
+      --color-secondary-500: 156, 163, 175;
+      --color-secondary-400: 107, 114, 128;
+      --color-secondary-300: 75, 85, 99;
+      --color-secondary-200: 55, 65, 81;
+      --color-secondary-100: 31, 41, 55;
+      --color-secondary-50: 17, 24, 39;
+      --color-secondary-0: 24, 33, 47;
+      --backdrop-color: 0, 0, 0;
     }
   }
 }
@@ -52,16 +69,4 @@ body {
   min-height: 100vh;
   user-select: none;
   background-color: rgb(var(--background-app-rgb));
-}
-
-@layer components {
-  .menu__item {
-    @apply w-10 h-10 text-secondary-700 text-xl rounded-xl flex items-center justify-center;
-  }
-  .button {
-    @apply w-28 h-12 cursor-pointer rounded-xl bg-secondary-200 flex items-center justify-center text-base;
-  }
-  .search {
-    @apply h-10  ;
-  }
 }

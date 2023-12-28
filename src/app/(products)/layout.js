@@ -1,7 +1,5 @@
-import Header from '@/components/Header'
 import '../globals.css'
-import Features from '@/components/Features'
-import Menu from '@/components/Menu'
+import Header from "../Header"
 
 export const metadata = {
   title: 'Next.js',
@@ -10,22 +8,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" dir="rtl" class="dark-mode">
+    <html lang="en">
       <body suppressContentEditableWarning={true}>
-        <div className="grid grid-cols-12 bg-secondary-100 text-white h-[100vh] grid-rows-12">
-          <div className="col-span-11 row-span-1">
-            <Header />
-          </div>
-          <div className="col-span-1 row-span-12">
-            <Features />
-          </div>
-          <div className="col-span-1 row-span-11 flex justify-center items-center">
-            <Menu />
-          </div>
-          <div className="col-span-10 row-span-12">
-            {children}
-          </div>
-        </div>
+        <Header />
+        {children}
       </body>
     </html>
   )
