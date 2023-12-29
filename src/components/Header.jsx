@@ -17,7 +17,7 @@ function Header() {
       </div>
       <div className="flex gap-x-3">
         <div className="button">فیلتر <FaFilter className="text-sm text-secondary-600 mr-2" /></div>
-        <Link className="button" href='/'>
+        <Link className="button" href='/auth/signin'>
           ورود <HiLogin className="text-xl text-secondary-600 mr-2" />
         </Link>
       </div>

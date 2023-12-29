@@ -21,7 +21,7 @@
       --color-secondary-0: #000000;
       --color-success: 0, 192, 115;
       --color-warning: 255, 153, 0;
-      --color-error: 255, 71, 87;
+      --color-error: #ff2626;
     }
     &.dark-mode {
       --color-secondary-700: #727272; /*icon item*/
@@ -61,7 +61,16 @@ body {
   .button {
     @apply w-28 h-12 cursor-pointer rounded-xl bg-secondary-200 flex items-center justify-center text-base;
   }
-  .search {
-    @apply h-10  ;
+  .input {
+    @apply w-full py-3 px-4 rounded-xl border border-white bg-white hover:border-secondary-700 focus:border-secondary-700 transition-all duration-300 ease-out focus:shadow-lg focus:shadow-secondary-700 dark:focus:shadow-secondary-700;
+  }
+  .btn {
+    @apply px-3 py-1 font-bold rounded-xl transition-all duration-300;
+  }
+  .btn--primary {
+    @apply px-4 py-3 bg-primary-100 text-white;
+  }
+  .btn--secondary {
+    @apply bg-secondary-600 text-secondary-100;
   }
 }
