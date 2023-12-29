@@ -4,7 +4,7 @@ export function signIn({ data }) {
     return http.post("/auth/login", data).then((response) => response);
 }
 
-export function signUp(data) {
-    console.log(data, avatar);
-    return http.post("/users/", data,avatar ).then((response) => response);
+export function signUp({ data, avatar }) {
+    const value = { ...data, avatar };
+    return http.post("/users/", value).then((response) => response);
 }
