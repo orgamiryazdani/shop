@@ -32,7 +32,7 @@ function SignInForm({ onSubmit }) {
         name="password"
       />
       <button type="submit" className="btn btn--primary w-full">ورود</button>
-      <Link href='/auth/signup' className="w-40 text-secondary-0">اکانت ندارید؟ ثبت نام</Link>
+      <Link href='/signup' className="w-40 text-secondary-0">اکانت ندارید؟ ثبت نام</Link>
     </form>
   )
 }

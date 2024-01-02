@@ -1,9 +1,16 @@
+"use client"
 import Link from "next/link"
 import { FaFilter, FaShop } from "react-icons/fa6"
 import { CiSearch } from "react-icons/ci";
 import { HiLogin } from "react-icons/hi";
+import useGetUser from "@/hooks/useAuth";
+import { FiUser } from "react-icons/fi";
 
 function Header() {
+  const { data, isLoading } = useGetUser()
+  
+  if (isLoading) return <div>loading...</div>
+
   return (
     <div className="w-full h-full flex items-center justify-between px-9 pt-3">
       <div className="border text-secondary-0 border-secondary-0 rounded-full w-10 h-10 flex items-center justify-center">
@@ -17,8 +24,16 @@ function Header() {
       </div>
       <div className="flex gap-x-3">
         <div className="button">فیلتر <FaFilter className="text-sm text-secondary-600 mr-2" /></div>
-        <Link className="button" href='/auth/signin'>
-          ورود <HiLogin className="text-xl text-secondary-600 mr-2" />
+        <Link className="button" href={data?.data ? "/profile" : "/signin"}>
+          {!data?.data ?
+            <span className="flex items-center">
+              ورود <HiLogin className="text-xl text-secondary-600 mr-2" />
+            </span>
+            :
+            <span className="flex items-center text-sm">
+              پروفایل <FiUser className="text-xl text-secondary-600 mr-2" />
+            </span>
+          }
         </Link>
       </div>
     </div>

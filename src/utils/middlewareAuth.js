@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { toStringCookies } from "./toStringCookies";
 
 export async function middlewareAuth(req) {
@@ -8,6 +9,6 @@ export async function middlewareAuth(req) {
         },
         credentials: 'include',
     })
-        .then(res => res.json());
+        .then(res => res.json()).catch((err) => toast.error(err))
     return user
 }
