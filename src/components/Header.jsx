@@ -5,11 +5,12 @@ import { CiSearch } from "react-icons/ci";
 import { HiLogin } from "react-icons/hi";
 import useGetUser from "@/hooks/useAuth";
 import { FiUser } from "react-icons/fi";
+import Loading from "@/common/Loading";
 
 function Header() {
   const { data, isLoading } = useGetUser()
-  
-  if (isLoading) return <div>loading...</div>
+
+  if (isLoading) return <Loading />
 
   return (
     <div className="w-full h-full flex items-center justify-between px-9 pt-3">

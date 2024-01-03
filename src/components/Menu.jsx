@@ -17,7 +17,7 @@ function Menu() {
                 <TbCategory2 />
             </Link>
             <Link className={`menu__item ${pathname == "/cart" ? "bg-primary-100 text-white" : ""}`} href="/cart">
-            <IoCartOutline />
+                <IoCartOutline />
             </Link>
             <button className="menu__item hover:text-red-500">
                 <TbLogout />

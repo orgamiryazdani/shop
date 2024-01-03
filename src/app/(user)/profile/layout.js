@@ -1,5 +1,7 @@
 import Providers from '@/app/Providers'
 import '../../globals.css'
+import { DarkModeProvider } from '@/context/DarkModeContext'
+import { Toaster } from 'react-hot-toast'
 
 export const metadata = {
   title: 'Next.js',
@@ -10,9 +12,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Providers>
-          {children}
-        </Providers>
+        <DarkModeProvider>
+          <Providers>
+            <Toaster />
+            {children}
+          </Providers>
+        </DarkModeProvider>
       </body>
     </html>
   )

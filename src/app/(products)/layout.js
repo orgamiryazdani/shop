@@ -4,6 +4,7 @@ import Features from '@/components/Features'
 import Menu from '@/components/Menu'
 import Providers from '../Providers'
 import { Toaster } from 'react-hot-toast'
+import { DarkModeProvider } from '@/context/DarkModeContext'
 
 export const metadata = {
   title: 'Next.js',
@@ -14,23 +15,25 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" dir="rtl" class="dark-mode">
       <body suppressContentEditableWarning={true}>
-        <Providers>
-          <Toaster />
-          <div className="grid grid-cols-12 bg-secondary-100 text-white h-[100vh] grid-rows-12">
-            <div className="col-span-11 row-span-1">
-              <Header />
+        <DarkModeProvider>
+          <Providers>
+            <Toaster />
+            <div className="grid grid-cols-12 bg-secondary-100 text-white h-[100vh] grid-rows-12">
+              <div className="col-span-11 row-span-1">
+                <Header />
+              </div>
+              <div className="col-span-1 row-span-12">
+                <Features />
+              </div>
+              <div className="col-span-1 row-span-11 flex justify-center items-center">
+                <Menu />
+              </div>
+              <div className="col-span-10 row-span-12">
+                {children}
+              </div>
             </div>
-            <div className="col-span-1 row-span-12">
-              <Features />
-            </div>
-            <div className="col-span-1 row-span-11 flex justify-center items-center">
-              <Menu />
-            </div>
-            <div className="col-span-10 row-span-12">
-              {children}
-            </div>
-          </div>
-        </Providers>
+          </Providers>
+        </DarkModeProvider>
       </body>
     </html>
   )
