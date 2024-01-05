@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" dir="rtl" class="dark-mode">
-      <body suppressContentEditableWarning={true}>
+      <body>
         <DarkModeProvider>
           <Providers>
             <Toaster />
