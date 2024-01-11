@@ -9,31 +9,24 @@ import { ThreeDots } from "react-loader-spinner";
 
 function ProductCard({ initialProducts }) {
     const [products, setProducts] = useState(initialProducts)
-    // const [limit, setLimit] = useState(8)
-    let limit = 8
-    let offset = 12
-    // const [offset, setOffset] = useState(12)
+    const [offset, setOffset] = useState(0)
     const [ref, inView] = useInView()
 
     async function loadMoreProducts() {
-        const limitValue = limit + 4
-        const offsetValue = offset + 4
-        const product = await getProducts({ offset: offsetValue, limit: limitValue })
+        const offsetValue = offset + 8
+        const product = await getProducts({ offset: offsetValue, limit: 8 })
         if (products?.length) {
-            limit = limitValue
-            offset = offsetValue
+            setOffset(offsetValue)
             setProducts((prev) => [
                 ...(prev?.length ? prev : []),
                 ...product.data
             ])
-            console.log(product.data);
         }
     }
 
     useEffect(() => {
         if (inView) {
             loadMoreProducts();
-            console.log('test ok');
         }
     }, [inView])
 
