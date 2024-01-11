@@ -74,3 +74,8 @@ body {
     @apply bg-secondary-600 text-secondary-100;
   }
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 0px;
+}
