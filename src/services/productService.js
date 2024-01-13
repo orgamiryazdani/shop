@@ -1,5 +1,6 @@
 import axios from "axios";
 
-export function getProducts({ offset = 0, limit = 8 }) {
-    return axios.get(`${process.env.NEXT_PUBLIC_API_URL}/products?offset=${offset}&limit=${limit}`).then((response) => response);
+export function getProducts(qs) {
+    return axios.get(`${process.env.NEXT_PUBLIC_API_URL}/products?${qs.search}&offset=${qs.offset}&limit=${qs.limit}`)
+        .then((response) => response);
 }

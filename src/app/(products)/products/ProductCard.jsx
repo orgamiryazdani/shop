@@ -1,11 +1,11 @@
 "use client"
+import Loading from "@/common/Loading";
 import { getProducts } from "@/services/productService";
 import { toLocalDateString } from "@/utils/toLocalDate"
 import { toPersianNumbers, toPersianNumbersWithComma } from "@/utils/toPersianNumbers"
 import { useEffect, useState } from "react";
 import { FaCartPlus } from "react-icons/fa6";
 import { useInView } from "react-intersection-observer";
-import { ThreeDots } from "react-loader-spinner";
 
 function ProductCard({ initialProducts }) {
     const [products, setProducts] = useState(initialProducts)
@@ -37,7 +37,7 @@ function ProductCard({ initialProducts }) {
                     <div className="bg-secondary-200 w-[272px] h-96 rounded-xl overflow-hidden" key={product.id}>
                         {/* image product */}
                         <div className="w-full h-1/2 overflow-hidden flex items-center justify-center">
-                            <img src="https://assets.adidas.com/images/w_940,f_auto,q_auto/5ae668a4e81749d6aa8c88dfee7c9882_9366/ID4989_01_standard.jpg" className="rounded-t-xl w-full h-full object-cover" alt="test" />
+                            <img src={product.images[0]} className="rounded-t-xl w-full h-full object-cover" alt="product" />
                         </div>
                         <div className="w-full h-1/2 pt-10 relative flex flex-col items-end p-4 justify-between">
                             <div className="w-full left-0 px-3 absolute flex items-center justify-between -top-[24px]">
@@ -49,9 +49,9 @@ function ProductCard({ initialProducts }) {
                                 {/* category Image */}
                                 <div className="w-12 h-12 overflow-hidden flex items-center rounded-xl justify-center">
                                     <img
-                                        src="https://cdn.thewirecutter.com/wp-content/media/2023/09/running-shoes-2048px-5960.jpg"
+                                        src={product.category.image}
                                         className="w-full h-full object-cover"
-                                        alt="test"
+                                        alt="category"
                                     />
                                 </div>
                             </div>
@@ -70,17 +70,7 @@ function ProductCard({ initialProducts }) {
                 ))
             }
             <div ref={ref} className="w-full">
-                <ThreeDots
-                    height={40}
-                    width={75}
-                    radius={9}
-                    color="var(--color-primary-100)"
-                    wrapperStyle={{
-                        display: "flex",
-                        justifyContent: "center",
-                    }}
-                    visible={true}
-                />
+                <Loading />
             </div>
         </div>
     )

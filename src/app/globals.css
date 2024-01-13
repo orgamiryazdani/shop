@@ -55,6 +55,9 @@ body {
 }
 
 @layer components {
+  .textField__input {
+    @apply w-full py-3 px-4 rounded-xl text-secondary-300 border border-secondary-100 bg-white hover:border-primary-100 focus:border-primary-100 transition-all duration-300 ease-out focus:shadow-lg focus:shadow-secondary-600 dark:focus:shadow-secondary-600;
+  }
   .menu__item {
     @apply w-10 h-10 text-secondary-700 text-xl rounded-xl flex items-center justify-center;
   }

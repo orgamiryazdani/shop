@@ -1,11 +1,12 @@
 "use client"
 import Link from "next/link"
-import { FaFilter, FaShop } from "react-icons/fa6"
+import { FaShop } from "react-icons/fa6"
 import { CiSearch } from "react-icons/ci";
 import { HiLogin } from "react-icons/hi";
 import useGetUser from "@/hooks/useAuth";
 import { FiUser } from "react-icons/fi";
 import Loading from "@/common/Loading";
+import ProductsFilterSort from "@/app/(products)/products/ProductsFilterSort";
 
 function Header() {
   const { data, isLoading } = useGetUser()
@@ -24,7 +25,7 @@ function Header() {
         </div>
       </div>
       <div className="flex gap-x-3">
-        <div className="button">فیلتر <FaFilter className="text-sm text-secondary-600 mr-2" /></div>
+        <ProductsFilterSort />
         <Link className="button" href={data?.data ? "/profile" : "/signin"}>
           {!data?.data ?
             <span className="flex items-center">
