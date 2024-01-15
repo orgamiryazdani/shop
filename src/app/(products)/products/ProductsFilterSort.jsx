@@ -2,35 +2,39 @@
 
 import Modal from "@/common/Modal";
 import Select from "@/common/Select";
+import { getCategories } from "@/services/categoryService";
+import { toPersianNumbersWithComma } from "@/utils/toPersianNumbers";
 import { Slider } from "@mui/material";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { FaFilter } from "react-icons/fa6";
-
-const option = [
-    {
-        label: "بیشترین",
-        value: "price_min"
-    },
-    {
-        label: "کمترین",
-        value: "price_max"
-    }
-]
 
 function valuetext(value) {
     return `${value}°C`;
 }
 
 function ProductsFilterSort() {
-    const [openModal, setOpenModal] = useState(false)
-
     const router = useRouter()
     const pathname = usePathname()
+    const category = getCategories()
     const searchParams = useSearchParams()
+    const [openModal, setOpenModal] = useState(false)
     const [selectedCategories, setSelectedCategories] = useState(
-        searchParams.get("price_max") || []
+        searchParams.get("categoryId")?.split(",") || []
     )
+    const [selectValue, setSelectValue] = useState(selectedCategories)
+    const [categoryValue, setCategoryValue] = useState("")
+
+    useEffect(() => {
+        async function getCategoryFn() {
+            const [{ data }] = await Promise.all([
+                category,
+            ]);
+            setCategoryValue(data ? data : [])
+        }
+        getCategoryFn()
+    }, [])
 
     const createQueryString = useCallback(
         (name, value) => {
@@ -40,15 +44,16 @@ function ProductsFilterSort() {
         }, [searchParams]
     )
 
-    const priceCategoryHandler = (e) => {
-        const value = 1;
-        if (selectedCategories.includes(value)) {
-            const categories = selectedCategories.filter(c => c !== value)
-            setSelectedCategories(categories)
-            router.push(pathname + "?" + createQueryString("category", categories))
+    const priceCategoryHandler = () => {
+        if (selectValue.length === 0 || selectValue === 0) {
+            toast.error("لطفا مقداری انتخاب کنید")
         } else {
-            setSelectedCategories([...selectedCategories, value])
-            router.push(pathname + "?" + createQueryString("category", [...selectedCategories, value]))
+            if (selectedCategories.includes(selectValue[0])) {
+                toast.error("لطفا مقدار جدیدی انتخاب کنید")
+            } else {
+                setSelectedCategories([...selectedCategories, selectValue])
+                router.push(pathname + "?" + createQueryString("categoryId", selectValue))
+            }
         }
     }
 
@@ -56,11 +61,16 @@ function ProductsFilterSort() {
         setOpenModal(false);
     }
 
-    const [value, setValue] = useState([20, 37]);
+    const [value, setValue] = useState([0, 1000000]);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    const selectChangeHandler = (e) => {
+        console.log(e.target.value);
+        setSelectValue(e.target.value);
+    }
 
     return (
         <>
@@ -70,7 +80,7 @@ function ProductsFilterSort() {
                 onClose={onClose}
                 title="فیلتر محصولات"
             >
-                <div className="px-3">
+                <div className="px-5">
                     <label>محدوده قیمت</label>
                     <Slider
                         getAriaLabel={() => 'Temperature range'}
@@ -78,15 +88,25 @@ function ProductsFilterSort() {
                         onChange={handleChange}
                         valueLabelDisplay="auto"
                         getAriaValueText={valuetext}
+                        min={0}
+                        max={1000000}
                     />
+                    <div className="w-full flex items-center justify-between text-sm text-secondary-600">
+                        <span>گران ترین</span>
+                        <p>از {toPersianNumbersWithComma(value[0])} دلار تا {toPersianNumbersWithComma(value[1])} دلار</p>
+                        <span>ارزان ترین</span>
+                    </div>
                 </div>
                 <Select
-                    options={option}
-                    value={option}
-                    onChange={{}}
+                    options={categoryValue}
+                    value={selectValue}
+                    onChange={selectChangeHandler}
                     label="دسته بندی"
                 />
-                <button onClick={() => priceCategoryHandler()} className="btn btn--primary w-full mt-5">تایید</button>
+                <button onClick={() => {
+                    priceCategoryHandler()
+                    onClose()
+                }} className="btn btn--primary w-full mt-5">تایید</button>
             </Modal>
         </>
     )

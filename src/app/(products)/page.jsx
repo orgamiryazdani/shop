@@ -5,10 +5,9 @@ import queryString from "query-string";
 export const dynamic = "force-dynamic";
 
 async function Products({ searchParams }) {
-  const search = queryString.stringify(searchParams)
   const { data } = await getProducts({
     limit: 8, offset: 0,
-    search
+    search: queryString.stringify(searchParams),
   },
   );
 

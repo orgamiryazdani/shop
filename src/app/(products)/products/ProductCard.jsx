@@ -37,7 +37,7 @@ function ProductCard({ initialProducts }) {
                     <div className="bg-secondary-200 w-[272px] h-96 rounded-xl overflow-hidden" key={product.id}>
                         {/* image product */}
                         <div className="w-full h-1/2 overflow-hidden flex items-center justify-center">
-                            <img src={product.images[0]} className="rounded-t-xl w-full h-full object-cover" alt="product" />
+                            <img src={product.images} className="rounded-t-xl w-full h-full object-cover" alt="product" />
                         </div>
                         <div className="w-full h-1/2 pt-10 relative flex flex-col items-end p-4 justify-between">
                             <div className="w-full left-0 px-3 absolute flex items-center justify-between -top-[24px]">
