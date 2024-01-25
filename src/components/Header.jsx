@@ -6,10 +6,19 @@ import { HiLogin } from "react-icons/hi";
 import useGetUser from "@/hooks/useAuth";
 import { FiUser } from "react-icons/fi";
 import Loading from "@/common/Loading";
-import ProductsFilterSort from "@/app/(products)/products/ProductsFilterSort";
+import ProductsFilter from "@/app/(products)/products/ProductsFilter";
+import { FaFilter } from "react-icons/fa6";
+import Modal from "@/common/Modal";
+import ProductsSort from "@/app/(products)/products/ProductsSort";
+import { useState } from "react";
 
 function Header() {
+  const [openModal, setOpenModal] = useState(false)
   const { data, isLoading } = useGetUser()
+
+  const onClose = () => {
+    setOpenModal(false);
+  }
 
   if (isLoading) return <Loading />
 
@@ -25,7 +34,15 @@ function Header() {
         </div>
       </div>
       <div className="flex gap-x-3">
-        <ProductsFilterSort />
+        <div onClick={() => setOpenModal(true)} className="button">فیلتر <FaFilter className="text-sm text-secondary-600 mr-2" /></div>
+        <Modal
+          open={openModal}
+          onClose={onClose}
+          title="فیلتر محصولات"
+        >
+          <ProductsSort />
+          <ProductsFilter />
+        </Modal>
         <Link className="button" href={data?.data ? "/profile" : "/signin"}>
           {!data?.data ?
             <span className="flex items-center">

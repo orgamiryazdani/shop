@@ -25,6 +25,10 @@ function ProductCard({ initialProducts }) {
     }
 
     useEffect(() => {
+        setProducts(initialProducts)
+    }, [initialProducts])
+
+    useEffect(() => {
         if (inView) {
             loadMoreProducts();
         }
