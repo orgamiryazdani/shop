@@ -14,7 +14,10 @@ function ProductCard({ initialProducts }) {
 
     async function loadMoreProducts() {
         const offsetValue = offset + 8
-        const product = await getProducts({ offset: offsetValue, limit: 8 })
+        const product = await getProducts({
+            offset: offsetValue, limit: 8,
+            search: window.location.href.split("?")[1],
+        })
         if (products?.length) {
             setOffset(offsetValue)
             setProducts((prev) => [
@@ -74,7 +77,7 @@ function ProductCard({ initialProducts }) {
                 ))
             }
             <div ref={ref} className="w-full">
-                <Loading />
+                    <Loading />
             </div>
         </div>
     )

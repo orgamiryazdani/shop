@@ -1,7 +1,6 @@
 "use client"
 import Link from "next/link"
 import { FaShop } from "react-icons/fa6"
-import { CiSearch } from "react-icons/ci";
 import { HiLogin } from "react-icons/hi";
 import useGetUser from "@/hooks/useAuth";
 import { FiUser } from "react-icons/fi";
@@ -11,6 +10,7 @@ import { FaFilter } from "react-icons/fa6";
 import Modal from "@/common/Modal";
 import ProductsSort from "@/app/(products)/products/ProductsSort";
 import { useState } from "react";
+import ProductsSearch from "@/app/(products)/products/ProductsSearch";
 
 function Header() {
   const [openModal, setOpenModal] = useState(false)
@@ -24,16 +24,14 @@ function Header() {
 
   return (
     <div className="w-full h-full flex items-center justify-between px-9 pt-3">
+      {/* logo */}
       <div className="border text-secondary-0 border-secondary-0 rounded-full w-10 h-10 flex items-center justify-center">
         <FaShop />
       </div>
-      <div className="flex items-center justify-center">
-        <input type="search" className="w-64 h-10 rounded-r-3xl border-secondary-300 bg-transparent border border-l-0 placeholder:text-secondary-0 placeholder:text-sm p-3 text-sm" placeholder="جستجو کنید ..." />
-        <div className="w-10 h-10 text-secondary-0 cursor-pointer rounded-l-3xl border border-secondary-300 flex items-center justify-center border-r-0">
-          <CiSearch />
-        </div>
-      </div>
+      {/* search */}
+      <ProductsSearch />
       <div className="flex gap-x-3">
+        {/* filter start */}
         <div onClick={() => setOpenModal(true)} className="button">فیلتر <FaFilter className="text-sm text-secondary-600 mr-2" /></div>
         <Modal
           open={openModal}
@@ -43,6 +41,8 @@ function Header() {
           <ProductsSort />
           <ProductsFilter />
         </Modal>
+        {/* filter end */}
+        {/* signIn start */}
         <Link className="button" href={data?.data ? "/profile" : "/signin"}>
           {!data?.data ?
             <span className="flex items-center">
@@ -54,6 +54,7 @@ function Header() {
             </span>
           }
         </Link>
+        {/* signIn end */}
       </div>
     </div>
   )
