@@ -38,7 +38,7 @@ function ProductCard({ initialProducts }) {
     }, [inView])
 
     return (
-        <div className="overflow-y-auto w-full h-full flex gap-4 flex-wrap items-center pt-10 justify-center md:justify-start">
+        <div className="overflow-y-auto w-full h-full flex gap-4 flex-wrap items-center justify-center md:justify-start">
             {
                 products?.map((product) => (
                     <div className="bg-secondary-200 w-[272px] h-96 rounded-xl overflow-hidden" key={product.id}>

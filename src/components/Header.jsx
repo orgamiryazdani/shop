@@ -23,7 +23,7 @@ function Header() {
   if (isLoading) return <Loading />
 
   return (
-    <div className="w-full h-full flex items-center justify-between px-9 pt-3">
+    <div className="w-full h-full flex items-center justify-between px-9">
       {/* logo */}
       <div className="border text-secondary-0 border-secondary-0 rounded-full w-10 h-10 flex items-center justify-center">
         <FaShop />
