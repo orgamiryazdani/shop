@@ -1,5 +1,5 @@
 import { getProducts } from "@/services/productService"
-import ProductCard from "./products/ProductCard";
+import ProductCard from "./ProductCard";
 import queryString from "query-string";
 
 export const dynamic = "force-dynamic";

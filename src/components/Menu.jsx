@@ -10,7 +10,7 @@ function Menu() {
     const pathname = usePathname();
     return (
         <div className="w-16 h-72 bg-secondary-200 rounded-3xl flex flex-col justify-around items-center">
-            <Link className={`menu__item ${pathname == "/" ? "bg-primary-100 text-white" : ""}`} href="/">
+            <Link className={`menu__item ${pathname == "/products" ? "bg-primary-100 text-white" : ""}`} href="/">
                 <RiHome3Line />
             </Link>
             <Link className={`menu__item ${pathname == "/category" ? "bg-primary-100 text-white" : ""}`} href="/category">

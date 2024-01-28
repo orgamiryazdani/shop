@@ -50,7 +50,7 @@ body {
   margin: 0;
   font-family: "Vazir" !important;
   min-height: 100vh;
-  user-select: none;
+  /* user-select: none; */
   background-color: rgb(var(--background-app-rgb));
 }
 
@@ -81,4 +81,19 @@ body {
 /* width */
 ::-webkit-scrollbar {
   width: 0px;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
 }

@@ -3,6 +3,7 @@ import Loading from "@/common/Loading";
 import { getProducts } from "@/services/productService";
 import { toLocalDateString } from "@/utils/toLocalDate"
 import { toPersianNumbers, toPersianNumbersWithComma } from "@/utils/toPersianNumbers"
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaCartPlus } from "react-icons/fa6";
 import { useInView } from "react-intersection-observer";
@@ -43,9 +44,11 @@ function ProductCard({ initialProducts }) {
                 products?.map((product) => (
                     <div className="bg-secondary-200 w-[272px] h-96 rounded-xl overflow-hidden" key={product.id}>
                         {/* image product */}
-                        <div className="w-full h-1/2 overflow-hidden flex items-center justify-center">
-                            <img src={product.images} className="rounded-t-xl w-full h-full object-cover" alt="product" />
-                        </div>
+                        <Link href={`/product/${product.id}`}>
+                            <div className="w-full h-1/2 overflow-hidden flex items-center justify-center">
+                                <img src={product.images} className="rounded-t-xl w-full h-full object-cover" alt="product" />
+                            </div>
+                        </Link>
                         <div className="w-full h-1/2 pt-10 relative flex flex-col items-end p-4 justify-between">
                             <div className="w-full left-0 px-3 absolute flex items-center justify-between -top-[24px]">
                                 {/* price */}
@@ -79,7 +82,7 @@ function ProductCard({ initialProducts }) {
             <div ref={ref} className="w-full">
                 <Loading />
             </div>
-        </div>
+        </div >
     )
 }
 
