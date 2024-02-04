@@ -3,6 +3,7 @@ import Loading from "@/common/Loading";
 import { getProducts } from "@/services/productService";
 import { toLocalDateString } from "@/utils/toLocalDate"
 import { toPersianNumbers, toPersianNumbersWithComma } from "@/utils/toPersianNumbers"
+import truncateText from "@/utils/truncateText";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaCartPlus } from "react-icons/fa6";
@@ -44,11 +45,11 @@ function ProductCard({ initialProducts }) {
                 products?.map((product) => (
                     <div className="bg-secondary-200 w-[272px] h-96 rounded-xl overflow-hidden" key={product.id}>
                         {/* image product */}
-                        <Link href={`/product/${product.id}`}>
+                        <a href={`/product/${product.id}`} target="_blank">
                             <div className="w-full h-1/2 overflow-hidden flex items-center justify-center">
                                 <img src={product.images} className="rounded-t-xl w-full h-full object-cover" alt="product" />
                             </div>
-                        </Link>
+                        </a>
                         <div className="w-full h-1/2 pt-10 relative flex flex-col items-end p-4 justify-between">
                             <div className="w-full left-0 px-3 absolute flex items-center justify-between -top-[24px]">
                                 {/* price */}
@@ -70,7 +71,9 @@ function ProductCard({ initialProducts }) {
                                 <p className="text-secondary-600 text-sm">شماره محصول : {toPersianNumbers(product.id)}</p>
                                 <span className="text-secondary-400 text-sm">{toLocalDateString(product.creationAt)}</span>
                             </div>
-                            <p className="text-secondary-0 font-bold">{product.title}</p>
+                            <a href={`/product/${product.id}`} target="_blank" dir="ltr">
+                                <p className="text-secondary-0 font-bold">{truncateText(product.title, 23)}</p>
+                            </a>
                             <div className="w-full flex items-center justify-between">
                                 <FaCartPlus className="text-2xl cursor-pointer text-secondary-500" />
                                 <div className="rounded-xl w-fit p-3 text-sm bg-secondary-300 text-secondary-500 flex items-center justify-center font-bold">{product.category.name}#</div>
