@@ -4,7 +4,6 @@ import { getProducts } from "@/services/productService";
 import { toLocalDateString } from "@/utils/toLocalDate"
 import { toPersianNumbers, toPersianNumbersWithComma } from "@/utils/toPersianNumbers"
 import truncateText from "@/utils/truncateText";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaCartPlus } from "react-icons/fa6";
 import { useInView } from "react-intersection-observer";
@@ -47,7 +46,7 @@ function ProductCard({ initialProducts }) {
                         {/* image product */}
                         <a href={`/product/${product.id}`} target="_blank">
                             <div className="w-full h-1/2 overflow-hidden flex items-center justify-center">
-                                <img src={product.images} className="rounded-t-xl w-full h-full object-cover" alt="product" />
+                                <img src={product.images} className="rounded-t-xl w-full h-full object-cover" alt={product.title} />
                             </div>
                         </a>
                         <div className="w-full h-1/2 pt-10 relative flex flex-col items-end p-4 justify-between">
