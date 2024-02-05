@@ -1,6 +1,6 @@
 import { getProducts } from "@/services/productService"
-import ProductCard from "./ProductCard";
 import queryString from "query-string";
+import ProductsPagination from "./ProductsPagination";
 
 export const dynamic = "force-dynamic";
 
@@ -12,7 +12,7 @@ async function Products({ searchParams }) {
   );
 
   return (
-    <ProductCard initialProducts={data} />
+    <ProductsPagination initialProducts={data} />
   )
 }
 

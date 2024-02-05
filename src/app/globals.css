@@ -50,7 +50,7 @@ body {
   margin: 0;
   font-family: "Vazir" !important;
   min-height: 100vh;
-  /* user-select: none; */
+  user-select: none;
   background-color: rgb(var(--background-app-rgb));
 }
 

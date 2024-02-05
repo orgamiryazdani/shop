@@ -1,45 +1,41 @@
 "use client"
-import Loading from "@/common/Loading";
-import { getProducts } from "@/services/productService";
 import { toLocalDateString } from "@/utils/toLocalDate"
 import { toPersianNumbers, toPersianNumbersWithComma } from "@/utils/toPersianNumbers"
 import truncateText from "@/utils/truncateText";
+import toast from "react-hot-toast";
+import { FaCartPlus, FaMinus, FaPlus, FaTrash } from "react-icons/fa6";
 import { useEffect, useState } from "react";
-import { FaCartPlus } from "react-icons/fa6";
-import { useInView } from "react-intersection-observer";
 
-function ProductCard({ initialProducts }) {
-    const [products, setProducts] = useState(initialProducts)
-    const [offset, setOffset] = useState(0)
-    const [ref, inView] = useInView()
-
-    async function loadMoreProducts() {
-        const offsetValue = offset + 8
-        const product = await getProducts({
-            offset: offsetValue, limit: 8,
-            search: window.location.href.split("?")[1] || "",
-        })
-        if (products?.length) {
-            setOffset(offsetValue)
-            setProducts((prev) => [
-                ...(prev?.length ? prev : []),
-                ...product.data
-            ])
-        }
-    }
+function ProductCard({ products }) {
+    const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
-        setProducts(initialProducts)
-    }, [initialProducts])
+        const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        setCartItems(storedCartItems);
+    }, []);
 
-    useEffect(() => {
-        if (inView) {
-            loadMoreProducts();
+    const addToLocalStorageData = (product) => {
+        const updatedProduct = { ...product, quantity: 1 };
+        setCartItems((prevCartItems) => [...prevCartItems, updatedProduct]);
+        localStorage.setItem("cartItems", JSON.stringify([...cartItems, updatedProduct]));
+        toast.success(product.title + " به سبد خرید اضافه شد ");
+    };
+
+    const handleQuantityChange = (productId, change) => {
+        const updatedCartItems = cartItems.map((item) =>
+            item.id === productId ? { ...item, quantity: item.quantity + change } : item
+        );
+        // حذف محصول اگر تعداد به صفر رسیده باشد
+        const productToRemoveIndex = updatedCartItems.findIndex((item) => item.id === productId);
+        if (productToRemoveIndex !== -1 && updatedCartItems[productToRemoveIndex].quantity === 0) {
+            updatedCartItems.splice(productToRemoveIndex, 1);
         }
-    }, [inView])
+        setCartItems(updatedCartItems);
+        localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+    };
 
     return (
-        <div className="overflow-y-auto w-full h-full flex gap-4 flex-wrap items-center justify-center md:justify-start">
+        <>
             {
                 products?.map((product) => (
                     <div className="bg-secondary-200 w-[272px] h-96 rounded-xl overflow-hidden" key={product.id}>
@@ -74,17 +70,39 @@ function ProductCard({ initialProducts }) {
                                 <p className="text-secondary-0 font-bold">{truncateText(product.title, 23)}</p>
                             </a>
                             <div className="w-full flex items-center justify-between">
-                                <FaCartPlus className="text-2xl cursor-pointer text-secondary-500" />
+                                {cartItems.some((item) => item.id === product.id) ? (
+                                    <div className="w-20 h-10 flex items-center justify-between">
+                                        <span
+                                            className="text-sky-500 cursor-pointer"
+                                            onClick={() => handleQuantityChange(product.id, 1)}
+                                        >
+                                            <FaPlus />
+                                        </span>
+                                        <p className="rounded-[10px] bg-secondary-300 h-7 px-3 text-center pt-1">
+                                            {toPersianNumbers(cartItems.find((item) => item.id === product.id)?.quantity || 1)}
+                                        </p>
+                                        <span
+                                            className="text-rose-500 cursor-pointer"
+                                            onClick={() => handleQuantityChange(product.id, -1)}
+                                        >
+                                            {cartItems.find((item) => item.id === product.id)?.quantity == 1 ?
+                                                <FaTrash />
+                                                :
+                                                <FaMinus />
+                                            }
+                                        </span>
+                                    </div>
+                                ) : (
+                                    <FaCartPlus onClick={() => addToLocalStorageData(product)} className="text-2xl cursor-pointer text-secondary-500" />
+                                )}
                                 <div className="rounded-xl w-fit p-3 text-sm bg-secondary-300 text-secondary-500 flex items-center justify-center font-bold">{product.category.name}#</div>
                             </div>
                         </div>
                     </div>
                 ))
             }
-            <div ref={ref} className="w-full">
-                <Loading />
-            </div>
-        </div >
+        </>
+
     )
 }
 
