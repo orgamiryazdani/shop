@@ -1,6 +1,5 @@
 "use client"
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import { FaTrash } from "react-icons/fa6";
 
 function AddToCartButton({ data }) {
@@ -15,7 +14,6 @@ function AddToCartButton({ data }) {
         const updatedProduct = { ...data, quantity: 1 };
         setCartItems((prevCartItems) => [...prevCartItems, updatedProduct]);
         localStorage.setItem("cartItems", JSON.stringify([...cartItems, updatedProduct]));
-        toast.success(data.title + " به سبد خرید اضافه شد ");
     };
 
     const handleQuantityChange = (productId, change) => {

@@ -28,7 +28,7 @@ function Features() {
         <div className="button size-12 text-lg mb-3"><FaRegBell /></div>
         <div className="button size-12 text-lg mb-5"><MdOutlineChat /></div>
       </div>
-    </div>
+    </div >
   )
 }
 

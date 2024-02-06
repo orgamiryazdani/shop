@@ -76,6 +76,9 @@ body {
   .btn--secondary {
     @apply bg-secondary-600 text-secondary-100;
   }
+  .user--info {
+    @apply flex items-center justify-between;
+  }
 }
 
 /* width */
