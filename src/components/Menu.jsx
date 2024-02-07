@@ -1,19 +1,15 @@
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { RiHome3Line } from "react-icons/ri";
+"use client"
+import Link from "next/link"
 import { TbCategory2 } from "react-icons/tb";
-import { IoCartOutline } from "react-icons/io5";
 import { TbLogout } from "react-icons/tb";
 import { usePathname } from "next/navigation";
+import { RiHome3Line } from "react-icons/ri";
+import { IoCartOutline } from "react-icons/io5";
+import { useCart } from "@/context/CartContext";
 
 function Menu() {
     const pathname = usePathname();
-    const [iconLength, setIconLength] = useState(0);
-
-    useEffect(() => {
-        const storedItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-        setIconLength(storedItems.length);
-    }, [localStorage.getItem("cartItems")]);
+    const { cart } = useCart()
 
     return (
         <div className="w-16 h-72 bg-secondary-200 rounded-3xl flex flex-col justify-around items-center">
@@ -25,8 +21,8 @@ function Menu() {
             </Link>
             <Link className={`menu__item relative ${pathname == "/cart" ? "bg-primary-100 text-white" : "hover:text-primary-100"}`} href="/cart">
                 <IoCartOutline />
-                {iconLength >= 1 ?
-                    <span className="px-[6px] h-4 text-[9px] flex items-center justify-center left-5 bottom-5 pt-[2px] rounded-full bg-red-500 text-secondary-0 absolute">{iconLength}</span>
+                {cart.length >= 1 ?
+                    <span className="px-[6px] h-4 text-[9px] flex items-center justify-center left-5 bottom-5 pt-[2px] rounded-full bg-red-500 text-secondary-0 absolute">{cart.length}</span>
                     : null
                 }
             </Link>
@@ -34,7 +30,7 @@ function Menu() {
                 <TbLogout />
             </button>
         </div>
-    );
+    )
 }
 
-export default Menu;
+export default Menu
