@@ -9,7 +9,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
-import { IoReturnDownBack } from "react-icons/io5";
 
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -78,9 +77,6 @@ function Page() {
   const handleChange = (event, newAlignment) => {
     setLanguage(newAlignment);
   };
-
-  console.log(user);
-
 
   return (
     <div className="w-full h-[100vh] bg-secondary-200">
