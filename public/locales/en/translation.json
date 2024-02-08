@@ -1,0 +1,58 @@
+{
+  "id": "id",
+  "filter": "filter",
+  "login": "login",
+  "search": "search...",
+  "available": "available",
+  "currency": "dollar",
+  "profile": "profile",
+  "modal": {
+    "title": "filter products",
+    "priceRange": "price range",
+    "lowest": "lowest",
+    "maximum": "maximum",
+    "from": "from",
+    "to": "to",
+    "category": "category",
+    "chooseOption": "Choose the option you want"
+  },
+  "singleProduct": {
+    "storeSend": "Send from Shiraz store",
+    "dateOfRelease": "Date of Release",
+    "price": "price",
+    "postSend": "Shipping by Priority Mail",
+    "postPrice": "shipping cost",
+    "postTime": "Delivery between 3 and 5 working days",
+    "stock": "Available in stock",
+    "visiting": "The possibility of visiting in person",
+    "addCart": "Add to cart",
+    "deleteCart": "Remove from cart"
+  },
+  "loginPage": {
+    "welcome": "welcome",
+    "enterInfo": "Please enter your information",
+    "name": "name",
+    "email": "email",
+    "password": "password",
+    "login": "login",
+    "register": "register",
+    "dontSignUp": "Don't have an account? Register",
+    "dontLogin": "Have you already registered? log in",
+    "validationEmail": "Email is required",
+    "validationPassword": "Password is required",
+    "passwordLength": "Enter at least 4 characters",
+    "validationName": "Name is required",
+    "nameLength": "Enter at least 3 characters"
+  },
+  "profilePage": {
+    "language": "language",
+    "changeTheme": "Change the theme of the program",
+    "email": "email",
+    "password": "password",
+    "dateRegister": "Date of registration"
+  },
+  "cartPage": {
+    "payment": "registration and payment",
+    "purchase": "total purchase"
+  }
+}

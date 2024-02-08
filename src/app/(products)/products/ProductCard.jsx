@@ -4,9 +4,11 @@ import { toPersianNumbers, toPersianNumbersWithComma } from "@/utils/toPersianNu
 import truncateText from "@/utils/truncateText";
 import { FaCartPlus, FaMinus, FaPlus, FaTrash } from "react-icons/fa6";
 import { useCart } from "@/context/CartContext";
+import { useTranslation } from "react-i18next";
 
 function ProductCard({ products }) {
     const { cart, addItemToCart, handleQuantityChange } = useCart()
+    const { t } = useTranslation();
 
     return (
         <>
@@ -24,7 +26,7 @@ function ProductCard({ products }) {
                                 {/* price */}
                                 <div className="w-12 h-12 rounded-lg overflow-hidden">
                                     <div className="w-full h-1/2 bg-black flex items-center justify-center text-xs">${toPersianNumbersWithComma(product.price)}</div>
-                                    <div className="w-full h-1/2 bg-primary-200 text-primary-300 text-xs flex items-center justify-center">موجود</div>
+                                    <div className="w-full h-1/2 bg-primary-200 text-primary-300 text-xs flex items-center justify-center">{t('available')}</div>
                                 </div>
                                 {/* category Image */}
                                 <div className="w-12 h-12 overflow-hidden flex items-center rounded-xl justify-center">
@@ -37,7 +39,7 @@ function ProductCard({ products }) {
                             </div>
                             {/* info product */}
                             <div className="w-full flex flex-col items-start gap-y-3">
-                                <p className="text-secondary-600 text-sm">شماره محصول : {toPersianNumbers(product.id)}</p>
+                                <p className="text-secondary-600 text-sm">{t('id')} : {toPersianNumbers(product.id)}</p>
                                 <span className="text-secondary-400 text-sm">{toLocalDateString(product.creationAt)}</span>
                             </div>
                             <a href={`/product/${product.id}`} target="_blank" dir="ltr">

@@ -3,6 +3,7 @@ import { toPersianNumbersWithComma } from "@/utils/toPersianNumbers";
 import { Slider } from "@mui/material";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function valuetext(value) {
     return `${value}°C`;
@@ -14,6 +15,7 @@ function ProductsSort() {
     const searchParams = useSearchParams()
     const [value, setValue] = useState([searchParams.get("price_min")?.split(",") || 0, 
     searchParams.get("price_max")?.split(",") || 1000]);
+    const { t } = useTranslation();
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -25,7 +27,7 @@ function ProductsSort() {
 
     return (
         <div className="px-5">
-            <label>محدوده قیمت</label>
+            <label>{t('modal.priceRange')}</label>
             <Slider
                 value={value}
                 onChange={handleChange}
@@ -35,9 +37,9 @@ function ProductsSort() {
                 max={1000}
             />
             <div className="w-full flex items-center justify-between text-sm text-secondary-600">
-                <span>گران ترین</span>
-                <p>از {toPersianNumbersWithComma(value[0])} دلار تا {toPersianNumbersWithComma(value[1])} دلار</p>
-                <span>ارزان ترین</span>
+                <span>{t('modal.maximum')}</span>
+                <p>{t('modal.from')} {toPersianNumbersWithComma(value[0])} {t('currency')} {t('modal.to')} {toPersianNumbersWithComma(value[1])} {t('currency')}</p>
+                <span>{t('modal.lowest')}</span>
             </div>
         </div>
     )

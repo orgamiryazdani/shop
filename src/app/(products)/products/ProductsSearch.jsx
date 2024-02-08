@@ -1,5 +1,6 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { CiSearch } from "react-icons/ci";
 
 function ProductsSearch() {
@@ -7,6 +8,7 @@ function ProductsSearch() {
     const pathname = usePathname()
     const searchParams = useSearchParams()
     const [searchValue, setSearchValue] = useState("")
+    const { t } = useTranslation();
 
     const createQueryString = useCallback(
         (name, value) => {
@@ -27,7 +29,7 @@ function ProductsSearch() {
                 onChange={(e) => setSearchValue(e.target.value)}
                 type="search"
                 className="w-64 h-10 rounded-r-3xl border-secondary-300 bg-transparent border border-l-0 placeholder:text-secondary-0 placeholder:text-sm p-3 text-sm"
-                placeholder="جستجو کنید ..."
+                placeholder={t('search')}
                 onKeyDown={(e) => {
                     e.key === "Enter" ? searchByTitle() : null
                 }}

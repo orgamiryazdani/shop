@@ -1,38 +1,40 @@
 import Input from "@/common/Input"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
+import { useTranslation } from "react-i18next";
 
 function SignInForm({ onSubmit }) {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const { t } = useTranslation();
   
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-96 h-96 flex flex-col justify-around">
       <Input
-        label="ایمیل"
+        label={t('loginPage.email')}
         type="email"
         name="email"
         register={register}
         errors={errors}
         validationSchema={{
-          required: "ایمیل ضروری است",
+          required: t('loginPage.validationEmail'),
         }}
       />
       <Input
-        label="کلمه عبور"
+        label={t('loginPage.password')}
         register={register}
         errors={errors}
         validationSchema={{
-          required: "کلمه عبور ضروری است",
+          required: t('loginPage.validationPassword'),
           minLength: {
             value: 4,
-            message: "حداقل 4 کاراکتر را وارد کنید",
+            message: t('loginPage.passwordLength'),
           },
         }}
         type="password"
         name="password"
       />
-      <button type="submit" className="btn btn--primary w-full">ورود</button>
-      <Link href='/signup' className="w-40 text-secondary-0">اکانت ندارید؟ ثبت نام</Link>
+      <button type="submit" className="btn btn--primary w-full">{t('loginPage.login')}</button>
+      <Link href='/signup' className="w-40 text-secondary-0">{t('loginPage.dontSignUp')}</Link>
     </form>
   )
 }

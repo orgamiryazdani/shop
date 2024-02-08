@@ -1,12 +1,14 @@
 "use client"
 import { GiBarbedSun, GiMoonBats } from "react-icons/gi";
 import { MdOutlineChat } from "react-icons/md";
-import { IoAddCircleOutline } from "react-icons/io5";
+import { GrLanguage } from "react-icons/gr";
 import { FaRegBell } from "react-icons/fa6";
 import { useDarkMode } from "@/context/DarkModeContext";
+import { useLanguage } from "@/context/LanaguageContext";
 
 function Features() {
-  const { isDarkMode, toggleDarkMode } = useDarkMode()
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const { language, changeLanguage } = useLanguage()
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-between pt-3">
@@ -15,14 +17,19 @@ function Features() {
           isDarkMode ?
             <GiMoonBats />
             :
-            <GiBarbedSun className="text-xl"/>
+            <GiBarbedSun className="text-xl" />
         }
       </div>
-      <div className="w-[73px] h-28 bg-primary-100 cursor-pointer rounded-2xl flex items-center justify-evenly flex-col text-xs text-center">
-        <IoAddCircleOutline className="text-3xl" />
-        اضافه کردن
-        <br />
-        محصول
+      <div
+        onClick={() => changeLanguage(language == "fa" ? "en" : "fa")}
+        className="w-[73px] h-28 bg-primary-100 cursor-pointer rounded-2xl flex items-center justify-evenly flex-col text-xs text-center">
+        <GrLanguage className="text-3xl" />
+        {
+          language == "fa" ?
+            "Change the language to English"
+            :
+            "تغییر زبان به فارسی"
+        }
       </div>
       <div>
         <div className="button size-12 text-lg mb-3"><FaRegBell /></div>

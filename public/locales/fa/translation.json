@@ -1,0 +1,58 @@
+{
+  "id": "شماره محصول",
+  "filter": "فیلتر",
+  "login": "ورود",
+  "search": "جستجو...",
+  "available": "موجود",
+  "currency": "تومان",
+  "profile": "پروفایل",
+  "modal": {
+    "title": "فیلتر محصولات",
+    "priceRange": "محدوده قیمت",
+    "lowest": "ارزان ترین",
+    "maximum": "گران ترین",
+    "from": "از",
+    "to": "تا",
+    "category": "دسته بندی",
+    "chooseOption": "گزینه مورد نظر خود را انتخاب کنید"
+  },
+  "singleProduct": {
+    "storeSend": "ارسال از فروشگاه شیراز",
+    "dateOfRelease": "تاریخ انتشار",
+    "price": "قیمت ",
+    "postSend": "ارسال با پست پیشتاز",
+    "postPrice": "هزینه ارسال",
+    "postTime": "تحویل بین ۳ تا ۵ روز کاری",
+    "stock": "موجود در انبار",
+    "visiting": "امکان مراجعه بصورت حضوری",
+    "addCart": "افزودن به سبد خرید",
+    "deleteCart": "حذف از سبد خرید"
+  },
+  "loginPage": {
+    "welcome": "خوش آمدید",
+    "enterInfo": "لطفا اطلاعات خود را وارد کنید",
+    "name": "نام",
+    "email": "ایمیل",
+    "password": "کلمه عبور",
+    "login": "ورود",
+    "register": "ثبت نام",
+    "dontSignUp": "اکانت ندارید؟ ثبت نام",
+    "dontLogin": "قبلا ثبت نام کردید؟ ورود",
+    "validationEmail": "ایمیل ضروری است",
+    "validationPassword": "کلمه عبور ضروری است",
+    "passwordLength": "حداقل 4 کاراکتر را وارد کنید",
+    "validationName": "نام ضروری است",
+    "nameLength": "حداقل 3 کاراکتر را وارد کنید"
+  },
+  "profilePage": {
+    "language": "زبان",
+    "changeTheme": "تغییر تم برنامه",
+    "email": "ایمیل",
+    "password": "کلمه عبور",
+    "dateRegister": "تاریخ ثبت نام"
+  },
+  "cartPage": {
+    "payment": "ثبت و پرداخت",
+    "purchase": "جمع خرید"
+  }
+}

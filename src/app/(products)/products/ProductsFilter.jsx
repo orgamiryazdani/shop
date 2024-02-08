@@ -3,6 +3,7 @@ import Select from "@/common/Select";
 import { getCategories } from "@/services/categoryService";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function ProductsFilter() {
     const router = useRouter()
@@ -14,6 +15,8 @@ function ProductsFilter() {
     )
     const [selectValue, setSelectValue] = useState(selectedCategories)
     const [categoryValue, setCategoryValue] = useState([])
+    
+    const { t } = useTranslation();
 
     useEffect(() => {
         async function getCategoryFn() {
@@ -45,7 +48,7 @@ function ProductsFilter() {
             options={categoryValue}
             value={selectValue}
             onChange={selectChangeHandler}
-            label="دسته بندی"
+            label={t('modal.category')}
         />
     )
 }

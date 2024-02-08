@@ -9,7 +9,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
-
+import { useTranslation } from "react-i18next";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -63,6 +63,7 @@ function Page() {
   const [user, setUser] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [language, setLanguage] = useState("fa");
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function getUser() {
@@ -103,7 +104,7 @@ function Page() {
               <ToggleButton className="text-secondary-0 border-secondary-500" style={{ fontFamily: "Vazir" }} value="fa">فارسی</ToggleButton>
               <ToggleButton className="text-secondary-0 border-secondary-500" style={{ fontFamily: "Vazir" }} value="en">english</ToggleButton>
             </ToggleButtonGroup>
-            <p>زبان</p>
+            <p>{t('profilePage.language')}</p>
           </div>
           <div className="user--info">
             <FormGroup>
@@ -111,11 +112,11 @@ function Page() {
                 control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
               />
             </FormGroup>
-            <p>تغییر تم برنامه</p>
+            <p>{t('profilePage.changeTheme')}</p>
           </div>
           <div className="user--info">
             <p>{user.email}</p>
-            <p>ایمیل</p>
+            <p>{t('profilePage.email')}</p>
           </div>
           <div className="user--info">
             {showPassword ?
@@ -123,11 +124,11 @@ function Page() {
               :
               <div className="flex items-center h-6 text-[22px]">****** <FaEye className="pl-2 cursor-pointer w-6 h-6 pb-2" onClick={() => setShowPassword(!showPassword)} /></div>
             }
-            <p>کلمه عبور</p>
+            <p>{t('profilePage.password')}</p>
           </div>
           <div className="user--info">
             <p dir="rtl">{toLocalDateString(user.creationAt)}</p>
-            <p>تاریخ ثبت نام</p>
+            <p>{t('profilePage.dateRegister')}</p>
           </div>
         </div>
       </div>
