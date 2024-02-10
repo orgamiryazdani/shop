@@ -4,7 +4,7 @@ import { MdOutlineChat } from "react-icons/md";
 import { GrLanguage } from "react-icons/gr";
 import { FaRegBell } from "react-icons/fa6";
 import { useDarkMode } from "@/context/DarkModeContext";
-import { useLanguage } from "@/context/LanaguageContext";
+import { useLanguage } from "@/context/LanguageContext";
 import ThemeThree from "./ThemeThree";
 
 function Features() {

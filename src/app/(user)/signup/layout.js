@@ -7,7 +7,7 @@ import Link from 'next/link'
 import Providers from '@/app/Providers'
 import { Toaster } from 'react-hot-toast'
 import { DarkModeProvider } from '@/context/DarkModeContext'
-import { LanguageProvider } from '@/context/LanaguageContext'
+import { LanguageProvider } from '@/context/LanguageContext'
 import "../../../utils/i18n"
 import { useTranslation } from 'react-i18next'
 

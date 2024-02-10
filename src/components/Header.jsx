@@ -11,8 +11,6 @@ import ProductsSort from "@/app/(products)/products/ProductsSort";
 import { useState } from "react";
 import ProductsSearch from "@/app/(products)/products/ProductsSearch";
 import { useTranslation } from "react-i18next";
-import logo from "../../public/images/logo.png"
-import Image from "next/image";
 
 function Header() {
   const [openModal, setOpenModal] = useState(false)
@@ -26,11 +24,7 @@ function Header() {
   if (isLoading) return <Loading />
 
   return (
-    <div className="w-full h-full flex items-center justify-between pt-5 px-9">
-      {/* logo */}
-      <div className="w-32 h-20 flex items-center justify-center">
-        <Image src={logo} width={115}/>
-      </div>
+    <div className="w-[70%] h-full flex items-center justify-between pt-5 px-9">
       {/* search */}
       <ProductsSearch />
       <div className="flex gap-x-3">

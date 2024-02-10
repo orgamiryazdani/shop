@@ -4,7 +4,7 @@ import '../../globals.css'
 import { Suspense } from 'react'
 import { DarkModeProvider } from '@/context/DarkModeContext'
 import { CartProvider } from '@/context/CartContext'
-import { LanguageProvider } from '@/context/LanaguageContext'
+import { LanguageProvider } from '@/context/LanguageContext'
 import "../../../utils/i18n"
 
 export default function RootLayout({ children }) {

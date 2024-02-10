@@ -10,6 +10,8 @@ import Switch from '@mui/material/Switch';
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { useDarkMode } from "@/context/DarkModeContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -62,8 +64,10 @@ function Page() {
   const profile = getProfile();
   const [user, setUser] = useState({});
   const [showPassword, setShowPassword] = useState(false);
-  const [language, setLanguage] = useState("fa");
+  const [languageValue, setLanguageValue] = useState("fa");
   const { t } = useTranslation();
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const { changeLanguage } = useLanguage()
 
   useEffect(() => {
     async function getUser() {
@@ -76,14 +80,15 @@ function Page() {
   }, [])
 
   const handleChange = (event, newAlignment) => {
-    setLanguage(newAlignment);
+    setLanguageValue(newAlignment);
+    changeLanguage(newAlignment)
   };
 
   return (
     <div className="w-full h-[100vh] bg-secondary-200">
       <div className="w-full h-1/4 relative flex items-end justify-center bg-sky-200">
         <a href="/products" className="absolute left-3 top-3 w-8 h-8 text-white bg-secondary-700 rounded-xl flex items-center justify-center">
-        <IoIosArrowRoundBack className="w-6 h-6"/>
+          <IoIosArrowRoundBack className="w-6 h-6" />
         </a>
         <div className="w-32 h-32 rounded-full border-[5px] border-secondary-0 -bottom-16 absolute">
           <img className="w-full h-full rounded-full object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOWZM4LaEBG5h5ux83IEllVR4Y1vRwsWtLdA&usqp=CAU" alt={user.name} />
@@ -94,41 +99,42 @@ function Page() {
         <p className="text-yellow-500 text-lg flex items-center"><IoIosFlash className="w-5 h-5" /> {user.role} role</p>
         <div className="w-[300px] md:w-[400px] lg:w-[500px] h-72 mt-4 flex flex-col justify-between p-5 rounded-xl text-secondary-0 bg-secondary-300">
           <div className="user--info">
+            <p>{t('profilePage.language')}</p>
             <ToggleButtonGroup
               color="primary"
-              value={language}
+              value={languageValue}
               exclusive
               onChange={handleChange}
               aria-label="Platform"
             >
-              <ToggleButton className="text-secondary-0 border-secondary-500" style={{ fontFamily: "Vazir" }} value="fa">فارسی</ToggleButton>
-              <ToggleButton className="text-secondary-0 border-secondary-500" style={{ fontFamily: "Vazir" }} value="en">english</ToggleButton>
+              <ToggleButton className={`!border-secondary-500 ${languageValue == "fa" ? "" : "!text-secondary-0"}`} style={{ fontFamily: "Vazir" }} value="fa">فارسی</ToggleButton>
+              <ToggleButton className={`!border-secondary-500 ${languageValue == "en" ? "" : "!text-secondary-0"}`} style={{ fontFamily: "Vazir" }} value="en">english</ToggleButton>
             </ToggleButtonGroup>
-            <p>{t('profilePage.language')}</p>
           </div>
           <div className="user--info">
+            <p>{t('profilePage.changeTheme')}</p>
             <FormGroup>
               <FormControlLabel
-                control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
+              onClick={toggleDarkMode}
+                control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked={isDarkMode} />}
               />
             </FormGroup>
-            <p>{t('profilePage.changeTheme')}</p>
           </div>
           <div className="user--info">
-            <p>{user.email}</p>
             <p>{t('profilePage.email')}</p>
+            <p>{user.email}</p>
           </div>
           <div className="user--info">
-            {showPassword ?
-              <div className="flex items-center h-6">{user.password} <FaEyeSlash className="pl-2 cursor-pointer w-6 h-6 pb-1" onClick={() => setShowPassword(!showPassword)} /></div>
-              :
-              <div className="flex items-center h-6 text-[22px]">****** <FaEye className="pl-2 cursor-pointer w-6 h-6 pb-2" onClick={() => setShowPassword(!showPassword)} /></div>
-            }
             <p>{t('profilePage.password')}</p>
+            {showPassword ?
+              <div className="flex items-center h-6"><FaEyeSlash className="pl-2 cursor-pointer w-6 h-6 pb-1" onClick={() => setShowPassword(!showPassword)} /> {user.password}</div>
+              :
+              <div className="flex items-center h-6 text-[22px]"><FaEye className="pl-2 cursor-pointer w-6 h-6 pb-2" onClick={() => setShowPassword(!showPassword)} /> ******</div>
+            }
           </div>
           <div className="user--info">
-            <p dir="rtl">{toLocalDateString(user.creationAt)}</p>
             <p>{t('profilePage.dateRegister')}</p>
+            <p dir="rtl">{toLocalDateString(user.creationAt)}</p>
           </div>
         </div>
       </div>
