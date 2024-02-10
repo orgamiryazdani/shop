@@ -28,15 +28,12 @@ function ProductsSearch() {
             <input
                 onChange={(e) => setSearchValue(e.target.value)}
                 type="search"
-                className="w-64 h-10 rounded-r-3xl border-secondary-300 bg-transparent border border-l-0 placeholder:text-secondary-0 placeholder:text-sm p-3 text-sm"
+                className="w-72 h-12 rounded-3xl flex items-center justify-center border-secondary-300 bg-transparent border text-center placeholder:text-base p-3 text-sm"
                 placeholder={t('search')}
                 onKeyDown={(e) => {
                     e.key === "Enter" ? searchByTitle() : null
                 }}
             />
-            <div onClick={() => searchByTitle()} className="w-10 h-10 text-secondary-0 cursor-pointer rounded-l-3xl border border-secondary-300 flex items-center justify-center border-r-0">
-                <CiSearch />
-            </div>
         </div>
     )
 }

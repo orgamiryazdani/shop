@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import '../../globals.css'
 import Features from '@/components/Features'
 import Menu from '@/components/Menu'
-import Providers from './../../Providers'
+import Providers from '../../Providers'
 import { Toaster } from 'react-hot-toast'
 import { DarkModeProvider } from '@/context/DarkModeContext'
 import { Suspense } from 'react'
@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
                     </div>
                   </DarkModeProvider>
                 </Suspense>
-                <div className="col-span-10 row-span-7">
+                <div className="col-span-10 row-span-7 pt-5">
                   {children}
                 </div>
               </div>

@@ -5,6 +5,7 @@ import { GrLanguage } from "react-icons/gr";
 import { FaRegBell } from "react-icons/fa6";
 import { useDarkMode } from "@/context/DarkModeContext";
 import { useLanguage } from "@/context/LanaguageContext";
+import ThemeThree from "./ThemeThree";
 
 function Features() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -12,13 +13,14 @@ function Features() {
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-between pt-3">
-      <div onClick={toggleDarkMode} className="border text-secondary-0 border-secondary-0 cursor-pointer rounded-full w-10 h-10 flex items-center justify-center">
+      <div onClick={toggleDarkMode} className="cursor-pointer text-secondary-0 text-3xl w-20 h-20 flex items-center justify-center relative">
         {
           isDarkMode ?
-            <GiMoonBats />
+            <GiMoonBats className="absolute z-50" />
             :
-            <GiBarbedSun className="text-xl" />
+            <GiBarbedSun className="absolute z-50" />
         }
+        <ThemeThree />
       </div>
       <div
         onClick={() => changeLanguage(language == "fa" ? "en" : "fa")}
@@ -26,9 +28,9 @@ function Features() {
         <GrLanguage className="text-3xl" />
         {
           language == "fa" ?
-            "Change the language to English"
+            <p>Switching<br />to English</p>
             :
-            "تغییر زبان به فارسی"
+            <p>تغییر زبان <br /> به فارسی</p>
         }
       </div>
       <div>
