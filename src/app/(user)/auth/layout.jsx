@@ -6,9 +6,6 @@ import { FaArrowRightLong } from 'react-icons/fa6'
 import Link from 'next/link'
 import Providers from '@/app/Providers'
 import { Toaster } from 'react-hot-toast'
-import { DarkModeProvider } from '@/context/DarkModeContext'
-import { LanguageProvider } from '@/context/LanguageContext'
-import "../../../utils/i18n"
 import { useTranslation } from 'react-i18next'
 
 export default function RootLayout({ children }) {
@@ -17,14 +14,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" class="dark-mode">
       <body>
-        <LanguageProvider>
-          <DarkModeProvider>
             <Providers>
               <Toaster />
               <div className='flex w-full h-full bg-secondary-200'>
                 <div className='w-2/6 flex items-center flex-col'>
                   <div className='w-full h-48 flex items-start justify-around flex-col px-5'>
-                    <Link href='/products'>
+                    <Link href='/home/products'>
                       <FaArrowRightLong className='text-secondary-0 text-2xl' />
                     </Link>
                     <div className='w-full flex flex-col items-center'>
@@ -39,8 +34,6 @@ export default function RootLayout({ children }) {
                 </div>
               </div>
             </Providers>
-          </DarkModeProvider>
-        </LanguageProvider>
       </body>
     </html>
   )

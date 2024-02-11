@@ -7,9 +7,7 @@ import toast from "react-hot-toast";
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-    const [cart, setCart] = useLocalStorageState(
-        typeof window !== 'undefined' && []
-    );
+    const [cart, setCart] = useLocalStorageState([]);
 
     useEffect(() => {
         const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];

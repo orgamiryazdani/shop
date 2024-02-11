@@ -48,7 +48,7 @@ function SignUpForm({ onSubmit }) {
         name="password"
       />
       <button type="submit" className="btn btn--primary w-full">{t('loginPage.register')}</button>
-      <Link href='/signin' className="w-40 text-secondary-0">{t('loginPage.dontLogin')}</Link>
+      <Link href='/auth/signin' className="w-40 text-secondary-0">{t('loginPage.dontLogin')}</Link>
     </form>
   )
 }

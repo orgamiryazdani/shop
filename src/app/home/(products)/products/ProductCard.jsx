@@ -14,7 +14,7 @@ function ProductCard({ products }) {
         <>
             {
                 products?.map((product) => (
-                    <div className="bg-secondary-200 w-[272px] h-96 rounded-xl overflow-hidden" key={product.id}>
+                    <div className="bg-secondary-200 md:w-[272px] w-[320px] h-96 rounded-xl overflow-hidden" key={product.id}>
                         {/* image product */}
                         <a href={`/product/${product.id}`} target="_blank">
                             <div className="w-full h-1/2 overflow-hidden flex items-center justify-center">

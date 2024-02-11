@@ -4,12 +4,12 @@ import { HiLogin } from "react-icons/hi";
 import useGetUser from "@/hooks/useAuth";
 import { FiUser } from "react-icons/fi";
 import Loading from "@/common/Loading";
-import ProductsFilter from "@/app/(products)/products/ProductsFilter";
+import ProductsFilter from "@/app/home/(products)/products/ProductsFilter";
 import { FaFilter } from "react-icons/fa6";
 import Modal from "@/common/Modal";
-import ProductsSort from "@/app/(products)/products/ProductsSort";
+import ProductsSort from "@/app/home/(products)/products/ProductsSort";
 import { useState } from "react";
-import ProductsSearch from "@/app/(products)/products/ProductsSearch";
+import ProductsSearch from "@/app/home/(products)/products/ProductsSearch";
 import { useTranslation } from "react-i18next";
 
 function Header() {
@@ -24,7 +24,7 @@ function Header() {
   if (isLoading) return <Loading />
 
   return (
-    <div className="w-[70%] h-full flex items-center justify-between pt-5 px-9">
+    <div className="w-full md:h-1/6 flex items-center justify-between md:pt-0 pt-5 lg:pl-9 pl-4 pr-2 lg:pr-44">
       {/* search */}
       <ProductsSearch />
       <div className="flex gap-x-3">
@@ -40,14 +40,14 @@ function Header() {
         </Modal>
         {/* filter end */}
         {/* signIn start */}
-        <Link className="button" href={data?.data ? "/profile" : "/signin"}>
+        <Link className="button" href={data?.data ? "/profile" : "/auth/signin"}>
           {!data?.data ?
             <span className="flex items-center">
-              {t('login')} <HiLogin className="text-xl text-secondary-600 mr-2" />
+              {t('login')} <HiLogin className="text-xl text-secondary-600 md:mr-2 mr-1" />
             </span>
             :
             <span className="flex items-center text-sm">
-              {t('profile')} <FiUser className="text-xl text-secondary-600 mr-2" />
+              {t('profile')} <FiUser className="text-xl text-secondary-600 md:mr-2 mr-1" />
             </span>
           }
         </Link>

@@ -4,6 +4,7 @@ import ProductCard from "./ProductCard"
 import { getProducts } from "@/services/productService";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import Header from "@/components/Header";
 
 function ProductsPagination({ initialProducts }) {
     const [products, setProducts] = useState(initialProducts)
@@ -36,10 +37,13 @@ function ProductsPagination({ initialProducts }) {
     }, [inView])
 
     return (
-        <div className="overflow-y-auto w-full h-full flex gap-4 flex-wrap items-center justify-center md:justify-start">
-            <ProductCard products={products}/>
-            <div ref={ref} className="w-full">
-                <Loading />
+        <div className="flex flex-col items-center justify-between w-full h-full">
+            <Header />
+            <div className="overflow-y-auto w-full h-5/6 flex gap-4 flex-wrap items-center justify-center 2xl:justify-start">
+                <ProductCard products={products} />
+                <div ref={ref} className="w-full">
+                    <Loading />
+                </div>
             </div>
         </div>
     )

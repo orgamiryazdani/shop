@@ -17,7 +17,7 @@ function SignUpPage() {
     try {
       await mutateAsync({ data, avatar: "https://api.lorem.space/image/face?w=640&h=480" });
       toast.success(t('loginPage.welcome'))
-      router.push("/products")
+      router.push("/home/products")
     } catch (error) {
       toast.error(error?.response?.data?.message)
     }

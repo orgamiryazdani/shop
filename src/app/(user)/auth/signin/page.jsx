@@ -17,7 +17,7 @@ function SignInPage() {
     try {
       await mutateAsync({ data });
       toast.success(t('loginPage.welcome'))
-      router.push("/products");
+      router.push("/home/products");
     } catch (error) {
       toast.error(error?.response?.data?.message)
     }

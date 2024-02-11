@@ -12,14 +12,14 @@ function Menu() {
     const { cart } = useCart()
 
     return (
-        <div className="w-16 h-72 bg-secondary-200 rounded-3xl flex flex-col justify-around items-center">
-            <Link className={`menu__item ${pathname == "/products" ? "bg-primary-100 text-white" : "hover:text-primary-100"}`} href="/products">
+        <div className="md:min-w-16 md:w-16 w-full md:h-72 h-full bg-secondary-200 md:rounded-3xl rounded-t-3xl flex md:flex-col justify-around items-center">
+            <Link className={`menu__item ${pathname == "/home/products" ? "bg-primary-100 text-white" : "hover:text-primary-100"}`} href="/home/products">
                 <RiHome3Line />
             </Link>
-            <Link className={`menu__item ${pathname == "/categories" ? "bg-primary-100 text-white" : "hover:text-primary-100"}`} href="/categories">
+            <Link className={`menu__item ${pathname == "/home/categories" ? "bg-primary-100 text-white" : "hover:text-primary-100"}`} href="/home/categories">
                 <TbCategory2 />
             </Link>
-            <Link className={`menu__item relative ${pathname == "/cart" ? "bg-primary-100 text-white" : "hover:text-primary-100"}`} href="/cart">
+            <Link className={`menu__item relative ${pathname == "/home/cart" ? "bg-primary-100 text-white" : "hover:text-primary-100"}`} href="/home/cart">
                 <IoCartOutline />
                 {cart.length >= 1 ?
                     <span className="px-[6px] h-4 text-[9px] flex items-center justify-center left-5 bottom-5 pt-[2px] rounded-full bg-red-500 text-secondary-0 absolute">{cart.length}</span>
