@@ -1,4 +1,5 @@
 "use client"
+import { useLanguage } from "@/context/LanguageContext";
 import { toPersianNumbersWithComma } from "@/utils/toPersianNumbers";
 import { Slider } from "@mui/material";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
@@ -13,9 +14,10 @@ function ProductsSort() {
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
-    const [value, setValue] = useState([searchParams.get("price_min")?.split(",") || 0, 
+    const [value, setValue] = useState([searchParams.get("price_min")?.split(",") || 0,
     searchParams.get("price_max")?.split(",") || 1000]);
     const { t } = useTranslation();
+    const { language } = useLanguage()
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -36,9 +38,11 @@ function ProductsSort() {
                 min={0}
                 max={1000}
             />
-            <div className="w-full flex items-center justify-between text-sm text-secondary-600">
+            <div className="w-full flex items-center justify-between text-sm text-secondary-600" dir="rtl">
                 <span>{t('modal.maximum')}</span>
-                <p>{t('modal.from')} {toPersianNumbersWithComma(value[0])} {t('currency')} {t('modal.to')} {toPersianNumbersWithComma(value[1])} {t('currency')}</p>
+                <p dir={language == 'fa' ? "rtl" : "ltr"}>
+                    {t('modal.from')} {language == 'fa' ? toPersianNumbersWithComma(value[0]) + " " + t('currency') : t('currency') + (value[0])} {t('modal.to')} {language == 'fa' ? toPersianNumbersWithComma(value[1]) + " " + t('currency') : t('currency') + (value[1])}
+                </p>
                 <span>{t('modal.lowest')}</span>
             </div>
         </div>

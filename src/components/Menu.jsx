@@ -6,10 +6,13 @@ import { usePathname } from "next/navigation";
 import { RiHome3Line } from "react-icons/ri";
 import { IoCartOutline } from "react-icons/io5";
 import { useCart } from "@/context/CartContext";
+import { useLanguage } from "@/context/LanguageContext";
+import { toPersianNumbers } from "@/utils/toPersianNumbers";
 
 function Menu() {
     const pathname = usePathname();
     const { cart } = useCart()
+    const { language } = useLanguage()
 
     return (
         <div className="md:min-w-16 md:w-16 w-full md:h-72 h-full bg-secondary-200 md:rounded-3xl rounded-t-3xl flex md:flex-col justify-around items-center">
@@ -22,7 +25,7 @@ function Menu() {
             <Link className={`menu__item relative ${pathname == "/home/cart" ? "bg-primary-100 text-white" : "hover:text-primary-100"}`} href="/home/cart">
                 <IoCartOutline />
                 {cart.length >= 1 ?
-                    <span className="px-[6px] h-4 text-[9px] flex items-center justify-center left-5 bottom-5 pt-[2px] rounded-full bg-red-500 text-secondary-0 absolute">{cart.length}</span>
+                    <span className="px-[6px] h-4 text-[9px] flex items-center justify-center left-5 bottom-5 pt-[2px] rounded-full bg-red-500 text-secondary-0 absolute">{language == 'fa' ? toPersianNumbers(cart.length) : cart.length}</span>
                     : null
                 }
             </Link>

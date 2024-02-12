@@ -4,8 +4,12 @@
   "login": "login",
   "search": "search... ⌕",
   "available": "available",
-  "currency": "dollar",
+  "currency": "$",
   "profile": "profile",
+  "addCart": "added to cart",
+  "order": "your order has been registered",
+  "selectCategory":"Choose your desired category",
+  "cartTotal":"Shopping cart - total number of products",
   "modal": {
     "title": "filter products",
     "priceRange": "price range",

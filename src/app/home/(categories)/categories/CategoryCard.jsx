@@ -1,9 +1,11 @@
 "use client"
 import { useRouter } from "next/navigation"
 import { useCallback } from "react"
+import { useTranslation } from "react-i18next";
 
 function CategoryCard({ data }) {
     const router = useRouter()
+    const { t } = useTranslation();
 
     const createQueryString = useCallback(
         (name, value) => {
@@ -20,9 +22,9 @@ function CategoryCard({ data }) {
     return (
         <div className="flex flex-col items-center justify-between w-full h-full">
             <span className='w-full h-1/6 text-secondary-0 text-xl flex items-center justify-center'>
-                دسته بندی مورد نظر خود را انتخاب کنید
+                {t('selectCategory')}
             </span>
-            <div className="w-full h-5/6 flex flex-wrap overflow-y-auto lg:justify-end justify-center items-center pb-16 md:pb-0">
+            <div dir="rtl" className="w-full h-5/6 flex flex-wrap overflow-y-auto lg:justify-end justify-center items-center pb-16 md:pb-0">
                 {data.map((category) => (
                     <a onClick={() => clickHandler(category.id)} key={category.id} className="bg-secondary-200 cursor-pointer w-[22rem] h-64 m-3 rounded-xl overflow-hidden">
                         <div className="w-full h-5/6">

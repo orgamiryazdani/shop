@@ -1,5 +1,6 @@
 import { getCategories } from "@/services/categoryService"
 import CategoryCard from "./CategoryCard";
+import { CategorySkeleton } from "@/common/Skeleton";
 
 async function categories() {
     const category = getCategories()
@@ -7,8 +8,10 @@ async function categories() {
         category,
     ]);
 
+    if (data.length < 1) return <CategorySkeleton />
+
     return (
-        <CategoryCard data={data}/>
+        <CategoryCard data={data} />
     )
 }
 

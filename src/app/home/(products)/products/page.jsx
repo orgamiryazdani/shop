@@ -1,9 +1,9 @@
 "use client"
 import useProducts from "@/hooks/useProducts";
 import ProductsPagination from "./ProductsPagination";
-import Loading from "@/common/Loading";
 import queryString from "query-string";
 import { useEffect } from "react";
+import SkeletonProducts from "@/common/Skeleton";
 
 function Products({ searchParams }) {
   const { products, isLoading, refetch } = useProducts({
@@ -15,7 +15,7 @@ function Products({ searchParams }) {
     refetch();
   }, [searchParams, refetch]);
 
-  if (isLoading) <Loading />
+  if (isLoading) return <SkeletonProducts />
 
   return (
     <ProductsPagination initialProducts={products} />

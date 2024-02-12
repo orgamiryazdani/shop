@@ -3,11 +3,13 @@ import { useLocalStorageState } from "@/hooks/useLocalStorageState";
 import { useContext, useEffect } from "react";
 import { createContext } from "react";
 import toast from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
     const [cart, setCart] = useLocalStorageState([]);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -18,7 +20,7 @@ export function CartProvider({ children }) {
         const updatedProduct = { ...product, quantity: 1 };
         setCart((prevCart) => [...prevCart, updatedProduct]);
         localStorage.setItem("cartItems", JSON.stringify([...cart, updatedProduct]));
-        toast.success(product.title + " به سبد خرید اضافه شد ");
+        toast.success(product.title + " " + t('addCart'));
     }
 
     const handleQuantityChange = (productId, change) => {
@@ -37,7 +39,7 @@ export function CartProvider({ children }) {
     const payCart = () => {
         localStorage.removeItem("cartItems");
         setCart([]);
-        toast.success("سفارش شما ثبت شد");
+        toast.success(t('order'));
     }
 
     return <CartContext.Provider value={{ cart, addItemToCart, handleQuantityChange, payCart }}>{children}</CartContext.Provider>

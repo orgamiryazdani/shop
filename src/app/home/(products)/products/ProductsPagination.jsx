@@ -43,7 +43,7 @@ function ProductsPagination({ initialProducts }) {
             <Header />
             <div className="overflow-y-auto w-full h-5/6 flex gap-4 flex-wrap items-center justify-center 2xl:justify-start">
                 <ProductCard products={product} />
-                <div ref={ref} className="w-full h-10 flex items-center justify-center">
+                <div ref={ref} className="w-full h-10 flex items-center justify-center mb-10 md:mb-0">
                     {refetch && products.length > 0 ? <Loading /> : null}
                 </div>
             </div>
