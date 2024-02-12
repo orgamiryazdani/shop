@@ -33,7 +33,8 @@
     "react-refresh": "^0.14.0",
     "react-spring": "^9.7.3",
     "swiper": "^11.0.5",
-    "three": "^0.161.0"
+    "three": "^0.161.0",
+    "universal-cookie": "^7.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

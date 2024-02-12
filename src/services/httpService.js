@@ -1,5 +1,7 @@
 import axios from "axios";
-import { parse, serialize } from 'cookie';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 const app = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -8,9 +10,8 @@ const app = axios.create({
 app.interceptors.request.use(
   (config) => {
     // خواندن توکن‌ها از کوکی‌ها
-    const cookies = parse(document.cookie);
-    const accessToken = cookies.accessToken;
-    const refreshToken = cookies.refreshToken;
+    const accessToken = cookies.get('accessToken');
+    const refreshToken = cookies.get('refreshToken');
 
     // اگر توکن‌ها وجود داشته باشند، آن‌ها را به هدرها اضافه کنید
     if (accessToken) {
@@ -31,9 +32,8 @@ const http = {
       // اگر درخواست موفق بود و توکن‌ها به دست آمدند
       if (response.data && response.data.access_token && response.data.refresh_token) {
         // تنظیم کوکی‌ها برای ذخیره توکن‌ها
-        document.cookie = serialize('accessToken', response.data.access_token, { path: '/' });
-        document.cookie = serialize('refreshToken', response.data.refresh_token, { path: '/' });
-
+        cookies.set('accessToken', response.data.access_token, { path: '/' });
+        cookies.set('refreshToken', response.data.refresh_token, { path: '/' });
       }
 
       return response;

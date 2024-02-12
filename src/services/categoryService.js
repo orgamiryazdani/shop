@@ -1,5 +1,5 @@
-import axios from "axios";
+import http from "./httpService";
 
 export function getCategories() {
-    return axios.get(`${process.env.NEXT_PUBLIC_API_URL}/categories`).then((response) => response);
+    return http.get(`/categories`).then((response) => response);
 }
