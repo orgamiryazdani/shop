@@ -31,8 +31,9 @@ const http = {
       // اگر درخواست موفق بود و توکن‌ها به دست آمدند
       if (response.data && response.data.access_token && response.data.refresh_token) {
         // تنظیم کوکی‌ها برای ذخیره توکن‌ها
-        document.cookie = serialize('accessToken', response.data.access_token);
-        document.cookie = serialize('refreshToken', response.data.refresh_token);
+        document.cookie = serialize('accessToken', response.data.access_token, { path: '/' });
+        document.cookie = serialize('refreshToken', response.data.refresh_token, { path: '/' });
+
       }
 
       return response;
@@ -44,6 +45,8 @@ const http = {
   put: app.put,
   patch: app.patch,
 };
+
+export default http;
 
 // app.interceptors.response.use(
 //   (res) => res,
@@ -64,5 +67,3 @@ const http = {
 //     return Promise.reject(err);
 //   }
 // );
-
-export default http;

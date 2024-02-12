@@ -6,10 +6,10 @@ export async function middleware(req) {
     const pathname = req.nextUrl.pathname;
     const { name, email } = await middlewareAuth(req)
     if (pathname.startsWith("/profile")) {
-        if (!name && !email) return NextResponse.redirect(new URL("/signin", url))
+        if (!name && !email) return NextResponse.redirect(new URL("/auth/signin", url))
     }
-    if (pathname.startsWith("/signin") || pathname.startsWith("/signup")) {
-        if (name && email) return NextResponse.redirect(new URL("/", url))
+    if (pathname.startsWith("/auth/signin") || pathname.startsWith("/auth/signup")) {
+        if (name && email) return NextResponse.redirect(new URL("/home/products", url))
     }
 }
 
@@ -17,7 +17,7 @@ export const config = {
     matcher: [
         "/admin/:path*",
         "/profile/:path*",
-        "/signin/:path*",
-        "/signup/:path*"
+        "/auth/signin/:path*",
+        "/auth/signup/:path*"
     ]
 }

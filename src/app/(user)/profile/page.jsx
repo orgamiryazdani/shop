@@ -87,7 +87,7 @@ function Page() {
   return (
     <div className="w-full h-[100vh] bg-secondary-200">
       <div className="w-full h-1/4 relative flex items-end justify-center bg-sky-200">
-        <a href="/products" className="absolute left-3 top-3 w-8 h-8 text-white bg-secondary-700 rounded-xl flex items-center justify-center">
+        <a href="/home/products" className="absolute left-3 top-3 w-8 h-8 text-white bg-secondary-700 rounded-xl flex items-center justify-center">
           <IoIosArrowRoundBack className="w-6 h-6" />
         </a>
         <div className="w-32 h-32 rounded-full border-[5px] border-secondary-0 -bottom-16 absolute">
