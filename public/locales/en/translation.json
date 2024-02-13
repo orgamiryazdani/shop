@@ -51,6 +51,8 @@
     "validationPassword": "Password is required",
     "passwordLength": "Enter at least 4 characters",
     "validationName": "Name is required",
+    "registerPass": "Your registration was successful",
+    "redirectLogin": "Please login",
     "nameLength": "Enter at least 3 characters"
   },
   "profilePage": {

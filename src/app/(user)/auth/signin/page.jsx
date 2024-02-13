@@ -1,17 +1,14 @@
 "use client"
-import { useMutation } from "@tanstack/react-query";
 import SignInForm from "./SignInForm"
-import { signIn } from "@/services/authService";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
+import { useSignUp } from "@/hooks/useAuth";
 
 function SignInPage() {
-  const { mutateAsync, isLoading } = useMutation({ mutationFn: signIn })
+  const { mutateAsync, isPending } = useSignUp()
   const router = useRouter()
   const { t } = useTranslation();
-
-  if (isLoading) return <div>loading...</div>
 
   const onSubmit = async (data) => {
     try {
@@ -22,7 +19,7 @@ function SignInPage() {
       toast.error(error?.response?.data?.message)
     }
   }
-  return <SignInForm onSubmit={onSubmit} />
+  return <SignInForm onSubmit={onSubmit} isLoading={isPending}/>
 }
 
 export default SignInPage

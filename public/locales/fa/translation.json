@@ -51,6 +51,8 @@
     "validationPassword": "کلمه عبور ضروری است",
     "passwordLength": "حداقل 4 کاراکتر را وارد کنید",
     "validationName": "نام ضروری است",
+    "registerPass": "ثبت نام شما با موفقیت انجام شد",
+    "redirectLogin": "لطفا وارد شوید",
     "nameLength": "حداقل 3 کاراکتر را وارد کنید"
   },
   "profilePage": {
