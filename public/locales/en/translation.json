@@ -8,8 +8,10 @@
   "profile": "profile",
   "addCart": "added to cart",
   "order": "your order has been registered",
-  "selectCategory":"Choose your desired category",
-  "cartTotal":"Shopping cart - total number of products",
+  "selectCategory": "Choose your desired category",
+  "cartTotal": "Shopping cart - total number of products",
+  "pleaseLogin":"Please login to your account",
+  "logOut":"You are logged out of your account",
   "modal": {
     "title": "filter products",
     "priceRange": "price range",
@@ -18,6 +20,9 @@
     "from": "from",
     "to": "to",
     "category": "category",
+    "closeBtn": "I gave up",
+    "accBtn": "Yes",
+    "logOutTitle": "Do you want to log out of your account?",
     "chooseOption": "Choose the option you want"
   },
   "singleProduct": {
