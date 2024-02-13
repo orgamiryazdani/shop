@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
             <div className="lg:col-start-12 lg:col-end-13 lg:row-span-8 z-20">
               <Features />
             </div>
-            <div className="md:col-start-1 md:col-end-2 md:col-span-2 w-full md:w-auto h-16 md:h-auto row-span-7 md:relative fixed bottom-0 z-10 md:flex justify-center items-center">
+            <div className="md:col-start-1 md:col-end-2 md:col-span-2 w-full md:w-auto h-16 md:h-auto row-span-7 md:relative fixed bottom-0 left-0 z-10 md:flex justify-center items-center">
               <Menu />
             </div>
             <div className="md:col-start-2 md:col-end-12 col-span-12 lg:row-start-1 row-start-2 row-end-9">
