@@ -12,6 +12,9 @@
   "cartTotal": "Shopping cart - total number of products",
   "pleaseLogin":"Please login to your account",
   "logOut":"You are logged out of your account",
+  "cartLength":"There are no products in the shopping cart",
+  "notFoundTitle":"page not found",
+  "notFoundLinkTitle":"Return to main page",
   "modal": {
     "title": "filter products",
     "priceRange": "price range",

@@ -12,13 +12,13 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" class="dark-mode">
-      <body>
+      <body className='w-full h-full bg-secondary-200 flex items-center justify-center'>
         <Providers>
           <Toaster />
-          <div className='flex flex-col xl:flex-row w-full h-[100vh] justify-between bg-secondary-200'>
+          <div className='max-w-[1400px] flex flex-col xl:flex-row w-full h-[100vh] lg:max-h-[700px] justify-between bg-secondary-200'>
             <div className='xl:w-2/6 w-full h-full flex items-center flex-col overflow-auto'>
               <div className='w-full h-36 xl:h-48 flex items-start justify-around flex-col px-5'>
-                <BackLink link="/home/products"/>
+                <BackLink link="/home/products" />
                 <div className='w-full flex flex-col items-center'>
                   <p className='lg:text-5xl text-4xl text-secondary-0 font-bold'>{t('loginPage.welcome')}</p>
                   <p className='text-secondary-700 mt-2'>{t('loginPage.enterInfo')}</p>
