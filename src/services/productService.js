@@ -1,7 +1,6 @@
 import http from "./httpService";
 
 export function getProducts(qs) {
-    console.log(qs.search);
     return http.get(`/products?${qs.search}&offset=${qs.offset}&limit=${qs.limit}`)
         .then((response) => response.data);
 }

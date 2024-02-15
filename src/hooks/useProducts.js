@@ -5,6 +5,7 @@ export default function useProducts(search) {
     const { data, isLoading, refetch } = useQuery({
         queryKey: ["products"],
         queryFn: () => getProducts(search),
+        refetchOnWindowFocus: false,
     });
 
     const products = data || [];

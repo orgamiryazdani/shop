@@ -4,28 +4,34 @@ import ProductCard from "./ProductCard"
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import Header from "@/components/Header";
-import useProducts from "@/hooks/useProducts";
+import { getProducts } from "@/services/productService";
 
 function ProductsPagination({ initialProducts }) {
     const [product, setProduct] = useState(initialProducts)
     const [offset, setOffset] = useState(0)
+    const [showLoading, setShowLoading] = useState(true)
     const [ref, inView] = useInView()
 
-    const { products, refetch } = useProducts({
-        offset: offset, limit: 8,
-        search: window.location.href.split("?")[1] || "",
-    })
-
-    function LoadMoreProducts() {
+    async function LoadMoreProducts() {
         const offsetValue = offset + 8
+        const product = getProducts({
+            offset: offsetValue, limit: 8,
+            search: window.location.href.split("?")[1] || "",
+        })
+        const [products] = await Promise.all([
+            product,
+        ]);
+        if (products.length == 0) {
+            setShowLoading(false)
+        }
+        console.log(products)
         setOffset(offsetValue)
-        if (product?.length) {
+        if (products?.length) {
             setProduct((prev) => [
                 ...(prev?.length ? prev : []),
                 ...products
             ])
         }
-        refetch()
     }
 
     useEffect(() => {
@@ -44,7 +50,11 @@ function ProductsPagination({ initialProducts }) {
             <div className="overflow-y-auto w-full h-5/6 flex gap-4 flex-wrap items-center justify-center 2xl:justify-start">
                 <ProductCard products={product} />
                 <div ref={ref} className="w-full h-10 flex items-center justify-center mb-10 md:mb-0">
-                    {refetch && products.length > 0 ? <Loading /> : null}
+                    {
+                        showLoading ?
+                            <Loading />
+                            : null
+                    }
                 </div>
             </div>
         </div>

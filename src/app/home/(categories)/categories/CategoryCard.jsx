@@ -19,6 +19,8 @@ function CategoryCard({ data }) {
         router.push("/products" + "?" + createQueryString("categoryId", id))
     }
 
+    if (data.length == 0) return <div className="w-full h-full flex items-center justify-center text-lg text-secondary-0">{t('categoryLength')}</div>
+
     return (
         <div className="flex flex-col items-center justify-between w-full h-full">
             <span className='w-full h-1/6 text-secondary-0 text-xl flex items-center justify-center'>

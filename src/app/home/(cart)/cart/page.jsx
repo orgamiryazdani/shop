@@ -12,7 +12,7 @@ function Page() {
     const { language } = useLanguage()
     const price = cart.reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
 
-    if (cart.length == 0) return <div className="w-full h-full flex items-center justify-center text-lg">{t('cartLength')}</div>
+    if (cart.length == 0) return <div className="w-full h-full flex items-center justify-center text-lg text-secondary-0">{t('cartLength')}</div>
 
     return (
         <div className="flex flex-col items-center justify-between w-full h-full">
