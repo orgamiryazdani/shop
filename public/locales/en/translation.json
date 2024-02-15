@@ -62,7 +62,7 @@
   },
   "profilePage": {
     "language": "language",
-    "changeTheme": "Change the theme of the program",
+    "changeTheme": "Change theme",
     "email": "email",
     "password": "password",
     "dateRegister": "Date of registration"

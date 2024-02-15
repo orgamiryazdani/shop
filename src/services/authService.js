@@ -10,5 +10,5 @@ export function signUp({ data, avatar }) {
 }
 
 export function getProfile() {
-    return http.get("/auth/profile").then((response) => response);
+    return http.get("/auth/profile").then(({data}) => data);
 }

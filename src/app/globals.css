@@ -42,6 +42,7 @@
   outline: none;
   padding: 0;
   margin: 0;
+  scrollbar-width: none;
 }
 
 html,
@@ -79,11 +80,6 @@ body {
   .user--info {
     @apply flex items-center justify-between;
   }
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 0px;
 }
 
 .swiper {

@@ -45,8 +45,8 @@ function Header() {
           </Modal>
           {/* filter end */}
           {/* signIn start */}
-          <Link className="button" href={data?.data ? "/profile" : "/auth/signin"}>
-            {!data?.data ?
+          <Link className="button" href={data ? "/profile" : "/auth/signin"}>
+            {!data ?
               <span className="flex items-center">
                 {t('login')} <HiLogin className={`text-xl text-secondary-600 ${language == 'fa' ? "md:mr-2 mr-1 rotate-0" : "md:ml-2 ml-1 rotate-180"}`} />
               </span>

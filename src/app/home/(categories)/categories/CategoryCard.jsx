@@ -26,7 +26,7 @@ function CategoryCard({ data }) {
             <span className='w-full h-1/6 text-secondary-0 text-xl flex items-center justify-center'>
                 {t('selectCategory')}
             </span>
-            <div dir="rtl" className="w-full h-5/6 flex flex-wrap overflow-y-auto lg:justify-end justify-center items-center pb-16 md:pb-0">
+            <div dir="rtl" className="w-full h-5/6 flex flex-wrap overflow-y-auto justify-center items-center pb-16 md:pb-0">
                 {data.map((category) => (
                     <a onClick={() => clickHandler(category.id)} key={category.id} className="bg-secondary-200 cursor-pointer w-[22rem] h-64 m-3 rounded-xl overflow-hidden">
                         <div className="w-full h-5/6">
