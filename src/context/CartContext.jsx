@@ -36,13 +36,19 @@ export function CartProvider({ children }) {
         localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
     };
 
+    const handleDelete = (productId) => {
+        const updatedCart = cart.filter(item => item.id !== productId);
+        setCart(updatedCart);
+        localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+      }
+
     const payCart = () => {
         localStorage.removeItem("cartItems");
         setCart([]);
         toast.success(t('order'));
     }
 
-    return <CartContext.Provider value={{ cart, addItemToCart, handleQuantityChange, payCart }}>{children}</CartContext.Provider>
+    return <CartContext.Provider value={{ cart, addItemToCart, handleQuantityChange, payCart,handleDelete }}>{children}</CartContext.Provider>
 }
 
 export function useCart() {
