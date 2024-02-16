@@ -2,7 +2,7 @@ import http from "./httpService";
 
 export function getProducts(qs) {
     return http.get(`/products?${qs.search}&offset=${qs.offset}&limit=${qs.limit}`)
-        .then((response) => response.data);
+        .then(({data}) => data);
 }
 
 export function getOneProducts(id) {

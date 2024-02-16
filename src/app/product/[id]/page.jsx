@@ -34,15 +34,14 @@ async function page({ params }) {
 
 export default page
 
-// export async function generateStaticParams() {
-//     const { data } = await getProducts(
-//         {
-//             limit: 0, offset: 0,
-//             search: "",
-//         },
-//     )
-//     return data.map((product) => ({
-//         id: String(product.id)
-//     }))
-// }
-
+export async function generateStaticParams() {
+    const data = await getProducts(
+        {
+            limit: 0, offset: 0,
+            search: "",
+        },
+    )
+    return data.map((product) => ({
+        id: String(product.id)
+    }))
+}
