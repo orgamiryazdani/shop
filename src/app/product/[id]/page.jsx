@@ -16,16 +16,16 @@ async function page({ params }) {
     ]);
 
     return (
-        <div className="bg-secondary-100 w-full h-full flex items-center justify-between px-10">
+        <div className="bg-secondary-100 w-full lg:h-full flex flex-wrap items-center justify-between px-10 pt-10 lg:pt-0">
             <ProductSlider images={data.images} />
-            <div className="w-3/6 h-5/6 pr-7 text-secondary-0 flex flex-col justify-between" dir="ltr">
+            <div className="lg:w-3/6 w-full lg:h-5/6 h-auto bg-secondary-100 pr-7 text-secondary-0 flex flex-col justify-between pt-5 lg:pt-0" dir="ltr">
                 <p className="text-2xl font-bold">{data.title}</p>
                 <p className="text-secondary-600">{data.description}</p>
-                <div className="flex items-end h-36 justify-between">
+                <div className="flex flex-wrap items-end md:h-36 h-auto justify-between mt-3">
                     <PostInfoCart />
                     <ProductInfo data={data} />
                 </div>
-                <PriceInfoProduct price={data.price}/>
+                <PriceInfoProduct price={data.price} />
                 <AddToCartButton data={data} />
             </div>
         </div>
@@ -34,15 +34,15 @@ async function page({ params }) {
 
 export default page
 
-export async function generateStaticParams() {
-    const { data } = await getProducts(
-        {
-            limit: 0, offset: 0,
-            search: "",
-        },
-    )
-    return data.map((product) => ({
-        id: String(product.id)
-    }))
-}
+// export async function generateStaticParams() {
+//     const { data } = await getProducts(
+//         {
+//             limit: 0, offset: 0,
+//             search: "",
+//         },
+//     )
+//     return data.map((product) => ({
+//         id: String(product.id)
+//     }))
+// }
 
