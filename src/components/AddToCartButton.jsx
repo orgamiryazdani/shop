@@ -10,9 +10,9 @@ function AddToCartButton({ data }) {
     return (
         <>
             {cart.find((item) => item.id === data.id)?.quantity >= 1 ?
-                <button onClick={() => handleQuantityChange(data.id, -1)} className="btn bg-red-500 h-12 flex items-center justify-center"><FaTrash className="pr-1 w-5 h-5 pb-1"/>{t('singleProduct.deleteCart')}</button>
+                <button onClick={() => handleQuantityChange(data.id, -1)} className="btn bg-red-500 h-12 flex items-center justify-center mb-3 md:mb-0"><FaTrash className="pr-1 w-5 h-5 pb-1"/>{t('singleProduct.deleteCart')}</button>
                 :
-                <button onClick={() => addItemToCart(data)} className="btn btn--primary">{t('singleProduct.addCart')}</button>
+                <button onClick={() => addItemToCart(data)} className="btn btn--primary mb-3 md:mb-0">{t('singleProduct.addCart')}</button>
             }
         </>
     )
