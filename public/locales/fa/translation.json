@@ -17,6 +17,9 @@
   "notFoundLinkTitle": "بازگشت به صفحه اصلی",
   "categoryLength": "هیچ دسته بندی پیدا نشد",
   "productsLength": "محصولی پیدا نشد",
+  "messageToast": "شما پیامی ندارید",
+  "adminMessage": "ادمین",
+  "adminMessage": "ادمین",
   "modal": {
     "title": "فیلتر محصولات",
     "priceRange": "محدوده قیمت",

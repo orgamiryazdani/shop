@@ -63,7 +63,7 @@ body {
     @apply w-10 h-10 text-secondary-700 text-xl rounded-xl flex items-center justify-center;
   }
   .button {
-    @apply  cursor-pointer rounded-xl bg-secondary-200 flex items-center justify-center w-1/2 md:w-28 md:text-base h-12 md:h-12;
+    @apply cursor-pointer rounded-xl bg-secondary-200 flex items-center justify-center w-1/2 md:w-28 md:text-base h-12 md:h-12;
   }
   .input {
     @apply w-full py-3 px-4 rounded-xl border border-white bg-white hover:border-secondary-700 focus:border-secondary-700 transition-all duration-300 ease-out focus:shadow-lg focus:shadow-secondary-700 dark:focus:shadow-secondary-700;

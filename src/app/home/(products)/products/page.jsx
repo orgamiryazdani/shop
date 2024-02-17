@@ -4,6 +4,7 @@ import ProductsPagination from "./ProductsPagination";
 import queryString from "query-string";
 import { useEffect } from "react";
 import SkeletonProducts from "@/common/Skeleton";
+import getUserIP from "@/utils/userIp";
 
 function Products({ searchParams }) {
   const { products, isLoading, refetch } = useProducts({
@@ -13,6 +14,7 @@ function Products({ searchParams }) {
 
   useEffect(() => {
     refetch();
+    getUserIP()
   }, [searchParams, refetch]);
 
   if (isLoading) return <SkeletonProducts />

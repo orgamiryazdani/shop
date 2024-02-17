@@ -17,6 +17,8 @@
   "notFoundLinkTitle":"Return to main page",
   "categoryLength": "No categories found",
   "productsLength": "No product found",
+  "messageToast": "You have no message",
+  "adminMessage": "Admin",
   "modal": {
     "title": "filter products",
     "priceRange": "price range",

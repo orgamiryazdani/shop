@@ -24,7 +24,6 @@ function ProductsPagination({ initialProducts }) {
         if (products.length == 0) {
             setShowLoading(false)
         }
-        console.log(products)
         setOffset(offsetValue)
         if (products?.length) {
             setProduct((prev) => [
