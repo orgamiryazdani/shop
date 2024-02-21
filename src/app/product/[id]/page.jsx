@@ -1,11 +1,8 @@
-import { getOneProducts, getProducts } from "@/services/productService";
+import { getOneProducts } from "@/services/productService";
 import ProductSlider from "../ProductSlider";
 import AddToCartButton from "@/components/AddToCartButton";
 import ProductInfo from "@/components/ProductInfo";
 import PriceInfoProduct from "@/components/PriceInfoProduct";
-
-export const dynamic = "force-static"
-export const dynamicParams = false
 
 async function page({ params }) {
     const { id } = params;
@@ -29,15 +26,3 @@ async function page({ params }) {
 }
 
 export default page
-
-export async function generateStaticParams() {
-    const data = await getProducts(
-        {
-            limit: 0, offset: 0,
-            search: "",
-        },
-    )
-    return data.map((product) => ({
-        id: String(product.id)
-    }))
-}
