@@ -6,7 +6,7 @@ function ProductsSearch() {
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
-    const [searchValue, setSearchValue] = useState("")
+    const [searchValue, setSearchValue] = useState(searchParams.get("title")?.split(",") || "")
     const { t } = useTranslation();
 
     const createQueryString = useCallback(
@@ -32,6 +32,7 @@ function ProductsSearch() {
                 onKeyDown={(e) => {
                     e.key === "Enter" ? searchByTitle() : null
                 }}
+                value={searchValue}
             />
         </div>
     )

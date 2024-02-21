@@ -27,7 +27,7 @@ function Menu() {
     }
 
     const logOutHandler = () => {
-        if (!data?.data) {
+        if (data == undefined) {
             toast(t('pleaseLogin'));
             return;
         } else {
