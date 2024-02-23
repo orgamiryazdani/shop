@@ -16,7 +16,7 @@ function CategoryCard({ data }) {
     )
 
     const clickHandler = (id) => {
-        router.push("/products" + "?" + createQueryString("categoryId", id))
+        router.push("/home/products" + "?" + createQueryString("categoryId", id))
     }
 
     if (data.length == 0) return <div className="w-full h-full flex items-center justify-center text-lg text-secondary-0">{t('categoryLength')}</div>

@@ -4,17 +4,23 @@ import { useTranslation } from "react-i18next";
 const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
-    const [language, setLanguage] = useState(localStorage.getItem('language') || 'fa')
+    const [language, setLanguage] = useState("")
     const { i18n } = useTranslation();
+
+    useEffect(() => {
+        const storedValue = localStorage.getItem("language") || "fa";
+        localStorage.setItem("language", storedValue);
+        setLanguage(storedValue);
+    }, [])
 
     const changeLanguage = (language) => {
         setLanguage(language)
+        localStorage.setItem('language', language)
     }
 
     useEffect(() => {
         i18n.changeLanguage(language)
-        localStorage.setItem('language', language)
-        document.body.dir = language === 'fa' ? 'rtl' : 'ltr'
+        document.body.dir = language == 'fa' ? 'rtl' : 'ltr'
     }, [language])
 
 

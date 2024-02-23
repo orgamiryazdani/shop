@@ -1,3 +1,4 @@
+"use client"
 import { useCart } from "@/context/CartContext"
 import { useLanguage } from "@/context/LanguageContext";
 import { toPersianNumbers } from "@/utils/toPersianNumbers";

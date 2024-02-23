@@ -23,7 +23,8 @@ function ProductInfo({ data }) {
                             month: '2-digit',
                             day: '2-digit',
                         })
-                    }</p>
+                    }
+                </p>
             </div>
             <PostInfoCart />
         </div>

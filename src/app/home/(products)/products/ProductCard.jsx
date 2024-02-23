@@ -6,6 +6,7 @@ import { FaCartPlus, FaMinus, FaPlus, FaTrash } from "react-icons/fa6";
 import { useCart } from "@/context/CartContext";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "@/context/LanguageContext";
+import Link from "next/link";
 
 function ProductCard({ products }) {
     const { cart, addItemToCart, handleQuantityChange } = useCart()
@@ -18,11 +19,11 @@ function ProductCard({ products }) {
                 products?.map((product) => (
                     <div className="bg-secondary-200 md:w-[272px] w-[320px] h-96 rounded-xl overflow-hidden" dir="rtl" key={product.id}>
                         {/* image product */}
-                        <a href={`/product/${product.id}`} target="_blank">
+                        <Link href={`/product/${product.id}`} target="_blank">
                             <div className="w-full h-1/2 overflow-hidden flex items-center justify-center">
                                 <img src={product.images} className="rounded-t-xl w-full h-full object-cover" alt={product.title} />
                             </div>
-                        </a>
+                        </Link>
                         <div className="w-full h-1/2 pt-10 relative flex flex-col items-end p-4 justify-between">
                             <div className="w-full left-0 px-3 absolute flex items-center justify-between -top-[24px]">
                                 {/* price */}

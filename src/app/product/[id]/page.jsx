@@ -1,8 +1,10 @@
 import { getOneProducts } from "@/services/productService";
 import ProductSlider from "../ProductSlider";
-import AddToCartButton from "@/components/AddToCartButton";
-import ProductInfo from "@/components/ProductInfo";
-import PriceInfoProduct from "@/components/PriceInfoProduct";
+import dynamic from 'next/dynamic'
+
+const ProductInfo = dynamic(() => import('@/components/ProductInfo'), { ssr: false })
+const PriceInfoProduct = dynamic(() => import('@/components/PriceInfoProduct'), { ssr: false })
+const AddToCartButton = dynamic(() => import('@/components/AddToCartButton'), { ssr: false })
 
 async function page({ params }) {
     const { id } = params;

@@ -1,5 +1,4 @@
-import { useLocalStorageState } from "@/hooks/useLocalStorageState";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { createContext } from "react";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
@@ -7,12 +6,13 @@ import { useTranslation } from "react-i18next";
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-    const [cart, setCart] = useLocalStorageState([]);
+    const [cart, setCart] = useState([]);
     const { t } = useTranslation();
 
     useEffect(() => {
-        const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-        setCart(storedCartItems);
+        const storedValue = JSON.parse(localStorage.getItem("cartItems")) || [];
+        localStorage.setItem("cartItems", JSON.stringify(storedValue));
+        setCart(storedValue);
     }, []);
 
     const addItemToCart = (product) => {
@@ -39,7 +39,7 @@ export function CartProvider({ children }) {
         const updatedCart = cart.filter(item => item.id !== productId);
         setCart(updatedCart);
         localStorage.setItem("cartItems", JSON.stringify(updatedCart));
-      }
+    }
 
     const payCart = () => {
         localStorage.removeItem("cartItems");
@@ -47,7 +47,7 @@ export function CartProvider({ children }) {
         toast.success(t('order'));
     }
 
-    return <CartContext.Provider value={{ cart, addItemToCart, handleQuantityChange, payCart,handleDelete }}>{children}</CartContext.Provider>
+    return <CartContext.Provider value={{ cart, addItemToCart, handleQuantityChange, payCart, handleDelete }}>{children}</CartContext.Provider>
 }
 
 export function useCart() {
