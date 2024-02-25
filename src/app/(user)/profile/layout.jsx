@@ -1,23 +1,20 @@
 "use client"
 import Providers from '@/app/Providers'
 import '../../globals.css'
-import { DarkModeProvider } from '@/context/DarkModeContext'
 import { Toaster } from 'react-hot-toast'
-import { LanguageProvider } from '@/context/LanguageContext'
-import "../../../utils/i18n"
+import { useTranslation } from 'react-i18next';
 
 export default function RootLayout({ children }) {
+  const { t } = useTranslation();
+  
   return (
-    <html lang="en" dir="rtl" class="dark-mode">
+    <html className="dark-mode">
+      <title>{t('profile')}</title>
       <body>
-        <LanguageProvider>
-          <DarkModeProvider>
-            <Providers>
-              <Toaster />
-              {children}
-            </Providers>
-          </DarkModeProvider>
-        </LanguageProvider>
+        <Providers>
+          <Toaster />
+          {children}
+        </Providers>
       </body>
     </html>
   )

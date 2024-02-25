@@ -38,11 +38,13 @@ function Products({ searchParams }) {
   }, [searchParams, refetch]);
 
   if (isLoading) return <SkeletonProducts />
-  if (products.length == 0) return <div className="w-full h-full relative flex flex-col items-center justify-center text-lg text-secondary-0">
+  if (products.length == 0) return <div className="w-full h-full relative flex flex-col items-center justify-center text-lg">
     <div className="absolute top-3 left-0 w-full">
-    <Header />
+      <Header />
     </div>
-    {t('productsLength')}
+    <p className="text-secondary-0">
+      {t('productsLength')}
+    </p>
   </div>
 
   return (

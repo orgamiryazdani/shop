@@ -27,7 +27,7 @@ function ProductsSearch() {
             <input
                 onChange={(e) => setSearchValue(e.target.value)}
                 type="search"
-                className="md:w-72 w-full h-12 md:h-12 rounded-3xl lg:mx-0 flex items-center justify-center border-secondary-300 bg-transparent border text-center placeholder:text-base p-3 text-sm"
+                className="md:w-72 w-full text-secondary-0 h-12 md:h-12 rounded-3xl lg:mx-0 flex items-center justify-center border-secondary-300 bg-transparent border text-center placeholder:text-base p-3 text-sm"
                 placeholder={t('search')}
                 onKeyDown={(e) => {
                     e.key === "Enter" ? searchByTitle() : null

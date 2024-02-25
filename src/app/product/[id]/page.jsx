@@ -6,6 +6,19 @@ const ProductInfo = dynamic(() => import('@/components/ProductInfo'), { ssr: fal
 const PriceInfoProduct = dynamic(() => import('@/components/PriceInfoProduct'), { ssr: false })
 const AddToCartButton = dynamic(() => import('@/components/AddToCartButton'), { ssr: false })
 
+export async function generateMetadata({ params }) {
+    const { id } = params;
+    const product = getOneProducts(id)
+    const [{ data }] = await Promise.all([
+        product,
+    ]);
+
+    return {
+        title: data.title,
+        description: data.description
+    }
+}
+
 async function page({ params }) {
     const { id } = params;
     const product = getOneProducts(id)

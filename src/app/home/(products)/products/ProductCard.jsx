@@ -1,6 +1,6 @@
 "use client"
 import { toLocalDateString } from "@/utils/toLocalDate"
-import { toPersianNumbers, toPersianNumbersWithComma } from "@/utils/toPersianNumbers"
+import { numberWithCommas, toPersianNumbers, toPersianNumbersWithComma } from "@/utils/toPersianNumbers"
 import truncateText from "@/utils/truncateText";
 import { FaCartPlus, FaMinus, FaPlus, FaTrash } from "react-icons/fa6";
 import { useCart } from "@/context/CartContext";
@@ -28,7 +28,7 @@ function ProductCard({ products }) {
                             <div className="w-full left-0 px-3 absolute flex items-center justify-between -top-[24px]">
                                 {/* price */}
                                 <div className="w-14 h-12 rounded-lg overflow-hidden">
-                                    <div className="w-full h-1/2 bg-black flex items-center justify-center text-xs">${language == 'fa' ? toPersianNumbersWithComma(product.price) : product.price}</div>
+                                    <div className="w-full h-1/2 bg-black flex items-center justify-center text-xs">${language == 'fa' ? toPersianNumbersWithComma(product.price) : numberWithCommas(product.price)}</div>
                                     <div className="w-full h-1/2 bg-primary-200 text-primary-300 text-xs flex items-center justify-center">{t('available')}</div>
                                 </div>
                                 {/* category Image */}

@@ -64,14 +64,12 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 function Page() {
   const { language, changeLanguage } = useLanguage()
   const [showPassword, setShowPassword] = useState(false);
-  const [languageValue, setLanguageValue] = useState(language);
   const { t } = useTranslation();
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   const { data, isLoading } = useGetUser()
 
   const handleChange = (event, newAlignment) => {
-    setLanguageValue(newAlignment);
     changeLanguage(newAlignment)
   };
 
@@ -95,14 +93,14 @@ function Page() {
             <p>{t('profilePage.language')}</p>
             <ToggleButtonGroup
               color="primary"
-              value={languageValue}
+              value={language}
               exclusive
               onChange={handleChange}
               aria-label="Platform"
               dir="ltr"
             >
-              <ToggleButton className={`!border-secondary-500 ${languageValue == "fa" ? "" : "!text-white"}`} style={{ fontFamily: "Vazir" }} value="fa">فارسی</ToggleButton>
-              <ToggleButton className={`!border-secondary-500 ${languageValue == "en" ? "" : "!text-white"}`} style={{ fontFamily: "Vazir" }} value="en">english</ToggleButton>
+              <ToggleButton className={`!border-secondary-500 ${language == "fa" ? "" : "!text-white"}`} style={{ fontFamily: "Vazir" }} value="fa">فارسی</ToggleButton>
+              <ToggleButton className={`!border-secondary-500 ${language == "en" ? "" : "!text-white"}`} style={{ fontFamily: "Vazir" }} value="en">english</ToggleButton>
             </ToggleButtonGroup>
           </div>
           <div className="user--info">
@@ -121,14 +119,14 @@ function Page() {
           <div className="user--info">
             <p>{t('profilePage.password')}</p>
             {showPassword ?
-              <div className={`flex items-center h-6 ${languageValue == 'fa' ? "flex-row" : "flex-row-reverse"}`}><FaEyeSlash className="pl-2 cursor-pointer w-6 h-6 pb-1" onClick={() => setShowPassword(!showPassword)} /> <p>{data.password}</p></div>
+              <div className={`flex items-center h-6 ${language == 'fa' ? "flex-row" : "flex-row-reverse"}`}><FaEyeSlash className="pl-2 cursor-pointer w-6 h-6 pb-1" onClick={() => setShowPassword(!showPassword)} /> <p>{data.password}</p></div>
               :
-              <div className={`flex items-center h-6 text-[22px] ${languageValue == 'fa' ? "flex-row" : "flex-row-reverse"}`}><FaEye className="pl-2 cursor-pointer w-6 h-6 pb-2" onClick={() => setShowPassword(!showPassword)} /> <p>******</p></div>
+              <div className={`flex items-center h-6 text-[22px] ${language == 'fa' ? "flex-row" : "flex-row-reverse"}`}><FaEye className="pl-2 cursor-pointer w-6 h-6 pb-3" onClick={() => setShowPassword(!showPassword)} /> <p>******</p></div>
             }
           </div>
           <div className="user--info">
             <p>{t('profilePage.dateRegister')}</p>
-            <p dir="rtl">{languageValue == 'fa'
+            <p dir="rtl">{language == 'fa'
               ? toLocalDateString(data.creationAt)
               : new Date(data.creationAt).toLocaleString('en-US', {
                 year: 'numeric',
