@@ -18,7 +18,10 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" class="dark-mode">
-      <title>{t('loginPage.register') + " - " + t('loginPage.login')}</title>
+      <head>
+        <title>{t('loginPage.register') + " - " + t('loginPage.login')}</title>
+        <link rel="icon" href="/images/logo.png" type="image/png" sizes="32x32" />
+      </head>
       <body className='w-full h-full bg-secondary-200 flex items-center justify-center'>
         <Providers>
           <Toaster />

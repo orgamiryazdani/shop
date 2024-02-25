@@ -29,7 +29,7 @@ function Products({ searchParams }) {
           </div>
           ,
           {
-            duration: 10000,
+            duration: 8000,
           }
         )
       }

@@ -10,10 +10,13 @@ import { useTranslation } from 'react-i18next'
 
 export default function RootLayout({ children }) {
   const { t } = useTranslation();
-  
+
   return (
     <html lang="en" className="dark-mode">
-      <title>{t('title')}</title>
+      <head>
+        <title>{t('title')}</title>
+        <link rel="icon" href="/images/logo.png" type="image/png" sizes="32x32" />
+      </head>
       <body className='bg-secondary-100 flex items-center justify-center'>
         <Providers>
           <Toaster />

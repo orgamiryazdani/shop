@@ -6,10 +6,13 @@ import { useTranslation } from 'react-i18next';
 
 export default function RootLayout({ children }) {
   const { t } = useTranslation();
-  
+
   return (
     <html className="dark-mode">
-      <title>{t('profile')}</title>
+      <head>
+        <title>{t('profile')}</title>
+        <link rel="icon" href="/images/logo.png" type="image/png" sizes="32x32" />
+      </head>
       <body>
         <Providers>
           <Toaster />

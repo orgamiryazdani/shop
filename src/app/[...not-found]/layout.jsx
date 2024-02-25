@@ -14,7 +14,10 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" className="dark-mode">
-      <title>{isClient ? t('notFoundTitle') : ""}</title>
+      <head>
+        <title>{isClient ? t('notFoundTitle') : ""}</title>
+        <link rel="icon" href="/images/logo.png" type="image/png" sizes="32x32" />
+      </head>
       <body className='w-full h-full flex items-center justify-center bg-secondary-100'>
         <Providers>
           {isClient ? children : null}

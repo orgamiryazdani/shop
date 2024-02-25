@@ -16,8 +16,7 @@ function ProductInfo({ data }) {
             <div className="md:w-1/2 w-full text-xs md:text-base md:h-full flex flex-col items-end justify-between mt-3" dir={language == 'fa' ? "ltr" : "rtl"}>
                 <p>{t('id')} : {language == 'fa' ? toPersianNumbers(data.id) : data.id}</p>
                 <span className="flex items-center"><FaShop className="px-2  w-9 h-9 pb-1" />{t('singleProduct.storeSend')}</span>
-                <p className="flex items-center"><IoMdTime className="px-2 w-9 h-9 pb-1 text-yellow-400" />{t('singleProduct.dateOfRelease')}
-                    : {language == 'fa' ? toLocalDateString(data.creationAt) :
+                <p className="flex items-center"><IoMdTime className="px-2 w-9 h-9 pb-1 text-yellow-400" />{t('singleProduct.dateOfRelease')} : {language == 'fa' ? toLocalDateString(data.creationAt) :
                         new Date(data.creationAt).toLocaleString('en-US', {
                             year: 'numeric',
                             month: '2-digit',
