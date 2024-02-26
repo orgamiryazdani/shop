@@ -26,7 +26,7 @@ function Page() {
                 isClient ?
                     <>
                         <CartAllItems />
-                        <div className="overflow-y-auto w-full md:h-5/6 h-[95%] relative flex gap-4 pb-32 lg:pb-0 flex-wrap items-center justify-center xl:justify-start">
+                        <div className="overflow-y-auto w-full md:h-5/6 h-[93%] relative flex gap-4 pb-32 lg:pb-0 flex-wrap items-center justify-center xl:justify-start">
                             <ProductCard products={cart} />
                         </div>
                         <div className="w-full px-4 md:px-0 h-16 fixed md:relative bg-secondary-100 md:bottom-0 bottom-16 flex items-center">
