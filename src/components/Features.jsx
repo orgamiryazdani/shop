@@ -69,7 +69,7 @@ function Features() {
               <span>{t('adminSeeCode')}</span>
               <Link target="_blank" href="https://github.com/orgamiryazdani/shop" className="border-b border-sky-500 w-12 text-sky-500">github</Link>
               <span>{t('communicationWithAdmin')}</span>
-              <div align="left" className="flex items-center justify-around h-32 md:h-auto flex-wrap" dir="ltr">
+              <div align="left" className="flex items-center justify-around h-20 md:h-auto flex-wrap" dir="ltr">
                 <a href="mailto:orgamiryazdani@gmail.com" target="_blank">
                   <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="36" alt="gmail logo" />
                 </a>
