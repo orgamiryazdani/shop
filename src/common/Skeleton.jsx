@@ -6,12 +6,12 @@ function SkeletonProducts() {
         <div className="w-full h-full flex items-center justify-center xl:justify-between flex-wrap mt-10">
             {
                 value.map((item) => (
-                    <div className="w-[360px] h-96 m-3 xl:m-0" key={item}>
-                        <Skeleton variant="image" width={360} height={192} sx={{ backgroundColor: "#3c3c3c", borderRadius: "8px", margin: "3px" }} />
-                        <Skeleton variant="text" width={360} height={30} sx={{ backgroundColor: "#3c3c3c", borderRadius: "6px", margin: "3px" }} />
-                        <Skeleton variant="text" width={360} height={30} sx={{ backgroundColor: "#3c3c3c", borderRadius: "6px", margin: "3px" }} />
-                        <Skeleton variant="text" width={360} height={30} sx={{ backgroundColor: "#3c3c3c", borderRadius: "6px", margin: "3px" }} />
-                        <div className="flex items-center justify-between w-[362px]">
+                    <div className="w-[360px] lg:w-[276px] h-96 m-3 xl:m-0" key={item}>
+                        <Skeleton variant="image" width="100%" height={192} sx={{ backgroundColor: "#3c3c3c", borderRadius: "8px", margin: "3px" }} />
+                        <Skeleton variant="text" width="100%" height={30} sx={{ backgroundColor: "#3c3c3c", borderRadius: "6px", margin: "3px" }} />
+                        <Skeleton variant="text" width="100%" height={30} sx={{ backgroundColor: "#3c3c3c", borderRadius: "6px", margin: "3px" }} />
+                        <Skeleton variant="text" width="100%" height={30} sx={{ backgroundColor: "#3c3c3c", borderRadius: "6px", margin: "3px" }} />
+                        <div className="flex items-center justify-between w-[362px] lg:w-[278px]">
                             <Skeleton variant="rounded" width={50} height={40} sx={{ backgroundColor: "#3c3c3c", borderRadius: "8px", margin: "3px" }} />
                             <Skeleton variant="rectangular" width={80} height={40} sx={{ backgroundColor: "#3c3c3c", borderRadius: "8px", margin: "0px" }} />
                         </div>
