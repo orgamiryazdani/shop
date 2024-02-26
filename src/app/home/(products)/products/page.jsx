@@ -1,18 +1,21 @@
 "use client"
 import useProducts from "@/hooks/useProducts";
 import ProductsPagination from "./ProductsPagination";
-import queryString from "query-string";
 import { useEffect } from "react";
 import SkeletonProducts from "@/common/Skeleton";
 import getUserIP from "@/utils/userIp";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import Header from "@/components/Header";
+import { useSearchParams } from "next/navigation";
 
-function Products({ searchParams }) {
+function Products() {
+  const searchParams = useSearchParams();
+  const search = searchParams ? searchParams.toString() : "";
+
   const { products, isLoading, refetch } = useProducts({
     limit: 8, offset: 0,
-    search: queryString.stringify(searchParams)
+    search
   });
   const { t } = useTranslation();
 
