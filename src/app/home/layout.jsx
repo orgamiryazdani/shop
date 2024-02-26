@@ -22,8 +22,8 @@ export default function RootLayout({ children }) {
           <Toaster />
           <div className="max-w-[1400px] grid grid-cols-12 bg-secondary-100 text-white h-[100vh] grid-rows-8">
             <div className="col-start-1 lg:col-end-2 col-end-13 row-span-1 flex flex-wrap md:flex-nowrap items-center justify-between">
-              <div className="min-w-20 md:w-44 w-full flex h-20 md:pt-6 pt-2 lg:px-3 pr-4 items-center justify-center">
-                <Image src={logo} width={115} alt='logo' />
+              <div className="min-w-10 md:w-44 w-full flex h-10 md:pt-6 pt-0 lg:px-3 pr-4 items-center justify-center">
+                <Image src={logo} width={95} alt='logo' />
               </div>
             </div>
             <div className="lg:col-start-12 lg:col-end-13 lg:row-span-8 z-20">

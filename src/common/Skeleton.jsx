@@ -6,12 +6,12 @@ function SkeletonProducts() {
         <div className="w-full h-full flex items-center justify-center xl:justify-between flex-wrap mt-10">
             {
                 value.map((item) => (
-                    <div className="w-[272px] h-96 m-3 xl:m-0" key={item}>
-                        <Skeleton variant="image" width={272} height={192} sx={{ backgroundColor: "#3c3c3c", borderRadius: "8px", margin: "3px" }} />
-                        <Skeleton variant="text" width={272} height={30} sx={{ backgroundColor: "#3c3c3c", borderRadius: "6px", margin: "3px" }} />
-                        <Skeleton variant="text" width={272} height={30} sx={{ backgroundColor: "#3c3c3c", borderRadius: "6px", margin: "3px" }} />
-                        <Skeleton variant="text" width={272} height={30} sx={{ backgroundColor: "#3c3c3c", borderRadius: "6px", margin: "3px" }} />
-                        <div className="flex items-center justify-between w-[275px]">
+                    <div className="w-[360px] h-96 m-3 xl:m-0" key={item}>
+                        <Skeleton variant="image" width={360} height={192} sx={{ backgroundColor: "#3c3c3c", borderRadius: "8px", margin: "3px" }} />
+                        <Skeleton variant="text" width={360} height={30} sx={{ backgroundColor: "#3c3c3c", borderRadius: "6px", margin: "3px" }} />
+                        <Skeleton variant="text" width={360} height={30} sx={{ backgroundColor: "#3c3c3c", borderRadius: "6px", margin: "3px" }} />
+                        <Skeleton variant="text" width={360} height={30} sx={{ backgroundColor: "#3c3c3c", borderRadius: "6px", margin: "3px" }} />
+                        <div className="flex items-center justify-between w-[360px]">
                             <Skeleton variant="rounded" width={50} height={40} sx={{ backgroundColor: "#3c3c3c", borderRadius: "8px", margin: "3px" }} />
                             <Skeleton variant="rectangular" width={80} height={40} sx={{ backgroundColor: "#3c3c3c", borderRadius: "8px", margin: "3px" }} />
                         </div>

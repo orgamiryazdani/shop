@@ -28,7 +28,7 @@ function Header() {
   return (
     <Suspense fallback={<HeaderSkeleton />}>
       <div
-        className={`w-full md:h-1/6 flex flex-wrap md:flex-nowrap items-center justify-between px-10 md:px-0 ${language == "fa" ? "lg:pr-44 lg:pl-9" : "lg:pl-44 lg:pr-9"}`}
+        className={`w-full md:h-1/6 flex flex-wrap md:flex-nowrap items-center justify-between px-5 md:px-0 ${language == "fa" ? "lg:pr-44 lg:pl-9" : "lg:pl-44 lg:pr-9"}`}
       >
         {/* search */}
         <ProductsSearch />

@@ -29,7 +29,7 @@ function Features() {
     <>
       <div className={`fixed w-[100vw] top-0  ${showMenu ? "left-0" : "-left-[100vw] hidden"} lg:hidden transition-all duration-300 ease-in-out h-[100vh] blur-sm bg-secondary-600`} onClick={() => setShowMenu(!showMenu)}></div>
       <FiMenu className="flex lg:hidden w-10 h-10 absolute left-2 top-4" onClick={() => setShowMenu(!showMenu)} />
-      <div className={`lg:w-full lg:h-full w-56 h-[100vh] top-0 fixed lg:relative lg:left-0 bg-secondary-300 lg:bg-transparent flex flex-col items-center justify-between pt-3 transition-all duration-300 ease-in-out ${showMenu ? "-left-0" : "-left-56"}`} >
+      <div className={`lg:w-full lg:h-full w-56 h-[100vh] top-0 fixed lg:relative lg:left-0 bg-secondary-300 lg:bg-transparent flex flex-col items-center justify-between pt-3 py-12 lg:py-0 transition-all duration-300 ease-in-out ${showMenu ? "-left-0" : "-left-56"}`} >
         <div onClick={toggleDarkMode} className="cursor-pointer text-[#eaeaea] text-3xl w-20 h-20 flex items-center justify-center relative">
           {
             isDarkMode ?
