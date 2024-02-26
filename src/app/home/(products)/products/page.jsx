@@ -17,7 +17,6 @@ function Products({ searchParams }) {
   const { t } = useTranslation();
 
   useEffect(() => {
-    refetch();
     const getIp = async () => {
       const vpn = await getUserIP()
       if (vpn) {
@@ -35,6 +34,7 @@ function Products({ searchParams }) {
       }
     }
     getIp()
+    refetch();
   }, [searchParams, refetch]);
 
   if (isLoading) return <SkeletonProducts />
