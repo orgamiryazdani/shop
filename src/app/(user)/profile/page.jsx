@@ -88,7 +88,7 @@ function Page() {
       <div className="w-full h-3/4 flex items-center justify-start pt-[80px] pb-3 flex-col">
         <p className="font-bold text-3xl text-secondary-0">{data.name}</p>
         <p className="text-yellow-500 text-lg flex items-center"><IoIosFlash className="w-5 h-5" /> {data.role} role</p>
-        <div className="w-[300px] md:w-[400px] lg:w-[500px] h-72 mt-4 flex flex-col justify-between p-5 rounded-xl text-white bg-secondary-300">
+        <div className="w-[360px] md:w-[400px] lg:w-[500px] h-72 mt-4 flex flex-col justify-between p-5 rounded-xl text-white bg-secondary-300">
           <div className="user--info">
             <p>{t('profilePage.language')}</p>
             <ToggleButtonGroup

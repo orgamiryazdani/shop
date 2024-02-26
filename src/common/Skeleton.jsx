@@ -11,9 +11,9 @@ function SkeletonProducts() {
                         <Skeleton variant="text" width={360} height={30} sx={{ backgroundColor: "#3c3c3c", borderRadius: "6px", margin: "3px" }} />
                         <Skeleton variant="text" width={360} height={30} sx={{ backgroundColor: "#3c3c3c", borderRadius: "6px", margin: "3px" }} />
                         <Skeleton variant="text" width={360} height={30} sx={{ backgroundColor: "#3c3c3c", borderRadius: "6px", margin: "3px" }} />
-                        <div className="flex items-center justify-between w-[360px]">
+                        <div className="flex items-center justify-between w-[362px]">
                             <Skeleton variant="rounded" width={50} height={40} sx={{ backgroundColor: "#3c3c3c", borderRadius: "8px", margin: "3px" }} />
-                            <Skeleton variant="rectangular" width={80} height={40} sx={{ backgroundColor: "#3c3c3c", borderRadius: "8px", margin: "3px" }} />
+                            <Skeleton variant="rectangular" width={80} height={40} sx={{ backgroundColor: "#3c3c3c", borderRadius: "8px", margin: "0px" }} />
                         </div>
                     </div>
                 ))
