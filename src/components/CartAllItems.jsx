@@ -11,7 +11,7 @@ function CartAllItems() {
     const total = cart.reduce((acc, cur) => acc + cur.quantity, 0)
 
     return (
-        <span className='w-full md:h-1/6 h-[11%] text-secondary-0 md:text-xl flex items-center justify-center' dir={language == 'fa' ? "ltr" : "rtl"}>
+        <span className='w-full md:h-1/6 h-[5%] text-secondary-0 md:text-xl flex items-center justify-center' dir={language == 'fa' ? "ltr" : "rtl"}>
             {t('cartTotal')} ( {language == 'fa' ? toPersianNumbers(total) : total} )
         </span>
     )
