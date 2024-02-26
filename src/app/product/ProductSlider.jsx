@@ -9,7 +9,7 @@ import '../globals.css'
 
 function ProductSlider({ images }) {
     return (
-        <div className='lg:w-3/6 lg:h-5/6 w-full h-auto rounded-xl overflow-hidden'>
+        <div className='lg:w-3/6 lg:h-5/6 w-full h-auto rounded-xl overflow-hidden' dir="ltr">
             <Swiper
                 spaceBetween={30}
                 effect={'fade'}
