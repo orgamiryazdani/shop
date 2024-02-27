@@ -7,6 +7,15 @@ const nextConfig = {
         appDir: true,
         // serverActions: true,
     },
+    async redirects() {
+        return [
+            {
+                source: '/',
+                destination: '/home/products',
+                permanent: true,
+            },
+        ]
+    },
 }
 
 module.exports = nextConfig
