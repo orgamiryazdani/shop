@@ -41,7 +41,7 @@ function Products() {
   }, [searchParams, refetch]);
 
   if (isLoading) return <SkeletonProducts />
-  if (products.length == 0) return <div className="w-full h-full min-w-[350px] relative flex flex-col items-center justify-center text-lg">
+  if (products.length == 0) return <div className="w-full h-full min-w-[375px] relative flex flex-col items-center justify-center text-lg">
     <div className="absolute top-3 left-0 w-full">
       <Header />
     </div>
