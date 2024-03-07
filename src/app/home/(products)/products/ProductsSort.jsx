@@ -35,7 +35,7 @@ function ProductsSort() {
                 onChange={handleChange}
                 valueLabelDisplay="auto"
                 getAriaValueText={valuetext}
-                min={0}
+                min={1}
                 max={1000}
             />
             <div className="w-full flex items-center justify-between text-sm text-secondary-600" dir="rtl">
